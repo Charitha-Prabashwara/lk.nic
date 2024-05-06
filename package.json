@@ -1,0 +1,26 @@
+{
+  "name": "lk.nic",
+  "version": "1.0.0",
+  "description": "LK.NIC (Srl Lanka National Identity Card). This is a front-end library. Reading the information encoded in Sri Lanka's national identity card number (date of birth, gender, citizenship, or foreignness) and identity card number verification can be easily done using this library.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Charitha-Prabashwara/lk.nic.git"
+  },
+  "keywords": [
+    "srilanka",
+    "nic",
+    "national",
+    "nic-reader",
+    "lk.nic"
+  ],
+  "author": "Charitha Prabhashwara",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Charitha-Prabashwara/lk.nic/issues"
+  },
+  "homepage": "https://github.com/Charitha-Prabashwara/lk.nic#readme"
+}

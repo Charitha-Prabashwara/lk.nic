@@ -27,17 +27,7 @@ class lknic{
         // function body   
     }
 
-    /**
-     * This returns true if the nic number string length is valid.
-     * @memberof lknic
-     * @name lengthValdation
-     * @function static function
-     * @param {String} nic
-     * @returns {boolean}
-     */
-    static lengthValdation(nic){
-
-    }
+   
 
 
 

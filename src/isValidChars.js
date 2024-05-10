@@ -1,3 +1,4 @@
+const isInNumericModule = require('./support_func/isInNumeric');
 /**
     * This returns true if the nic number string length is valid.
     * @memberof lknic
@@ -29,20 +30,20 @@ function isInInvalidChars(nic){
     * @param {String} nic
     * @returns {boolean}
 */
-function isInNumeric(nic){
+// function isInNumeric(nic){
 
-    const ONLYNUMERIC = /^\d+$/;
+//     const ONLYNUMERIC = /^\d+$/;
 
-    for (let index = 0; index < nic.length; index++) {
+//     for (let index = 0; index < nic.length; index++) {
 
-        const element = nic.indexOf(index);
+//         const element = nic.indexOf(index);
         
-        if (ONLYNUMERIC.test(element)) {
-            return true;
-        }
-    }
-    return false;
-}
+//         if (ONLYNUMERIC.test(element)) {
+//             return true;
+//         }
+//     }
+//     return false;
+// }
 
 /**
     * This returns true if the nic number string length is valid.
@@ -53,7 +54,7 @@ function isInNumeric(nic){
     * @returns {boolean}
 */
 function isValidChars(nic){  
-    return isInNumeric(nic);
+    return isInNumericModule.isInNumeric(nic);
 }
 
 module.exports = {

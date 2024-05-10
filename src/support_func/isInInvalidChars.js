@@ -20,4 +20,6 @@ function isInInvalidChars(nic){
     }
     return false;
 }
-export default isInInvalidChars;
+module.exports ={
+    isInInvalidChars
+}

@@ -20,4 +20,6 @@ function isInNumeric(nic){
     }
     return false;
 }
-export default isInNumeric;
+module.exports = {
+    isInNumeric
+    };

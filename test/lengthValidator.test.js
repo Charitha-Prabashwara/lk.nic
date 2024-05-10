@@ -1,10 +1,7 @@
 const model = require('../src/lengthValidator');
+const testData = require('./testData');
 
-//real nic numbers test data
-real_nic = [
-    '200013802840:true',
-    '911042754V:true'
-    ];
+real_nic = testData.real_nic;
 
 describe('Test length validation: id-001', () => {
 

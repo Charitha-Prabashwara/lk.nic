@@ -128,3 +128,7 @@ dist
 
 #ignore new support_func directory
 /support_func
+
+
+#ignore gitcaommands file
+gitcommands.txt

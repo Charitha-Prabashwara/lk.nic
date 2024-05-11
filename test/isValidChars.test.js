@@ -1,4 +1,4 @@
-const model = require('../src/isValidChars');
+const model = require('../src/notInvalidChars');
 const testData = require('./testData');
 
 real_nic = testData.real_nic;
@@ -12,7 +12,7 @@ describe("Test check valid char's in the nic.", ()=>{
             const nicNumber = dataSeparate[0];
             const inputResult = dataSeparate[1];
 
-            const response = model.isValidChars(nicNumber);
+            const response = model.ValidChars(nicNumber);
             expect(response).toBe(inputResult === "true");
             
         }

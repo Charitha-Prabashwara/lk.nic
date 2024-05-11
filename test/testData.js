@@ -1,7 +1,6 @@
 real_nic = [
-    '200013802840:true',
-    '911042754V:true',
-    'aaaaa1aaaa:true'
+    '200013802840:true:2',
+    '111042752x:true:1'
     ];
 module.exports = {
     real_nic

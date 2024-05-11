@@ -132,3 +132,6 @@ dist
 
 #ignore gitcaommands file
 gitcommands.txt
+
+#temp exclude files.
+src/support_func/isInNumeric.js

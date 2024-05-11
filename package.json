@@ -34,9 +34,7 @@
     "src/index.js",
     "src/lengthvalidator.js",
     "src/support_func/isInNumeric.js",
-    "src/isValidChars.js"
-
-
+    "src/notInvalidChars.js"
   ],
   "jest": {
     "testEnvironment": "node"

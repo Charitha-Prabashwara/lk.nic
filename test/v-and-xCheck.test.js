@@ -12,8 +12,8 @@ describe("Test check vV,xX characters in the nic.", ()=>{
             const nicNumber = dataSeparate[0];
             const inputResult = dataSeparate[1];
 
-            const response = model.verifyNicValidityUsingVX(nicNumber);
-            expect(response).toBe(inputResult === "true");
+            const response = new model.vxCheck(nicNumber);
+            expect(response.isValid()).toBe(inputResult === "true");
             
         }
     });
@@ -28,11 +28,11 @@ describe("Test check vV,xX characters in the nic.", ()=>{
 
             
             if(generation == "1"){
-                const responseOld = model.vxCheckForOldGeneration(nicNumber);
-                expect(responseOld).toBe(true);
+                const responseOld = new model.vxCheck(nicNumber);
+                expect(responseOld.isOldGeneration()).toBe(true);
             }else if(generation == "2"){
-                const responseNew = model.vxCheckForNewGeneration(nicNumber);
-                expect(responseNew).toBe(true);
+                const responseNew = new model.vxCheck(nicNumber);
+                expect(responseNew.isNewGeneration()).toBe(true);
             }else{
                 expect(true).toHaveBeenCalled();
             }

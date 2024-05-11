@@ -1,39 +1,25 @@
-const vxCounter = require('./support_func/vxCount');
+const validityUsingVX = require('./support_func/nicValidityUsingVX');
+const ForOldGenerationVX = require('./support_func/checkForOldGenerationVX');
+const ForNewGenerationVX = require('./support_func/checkForNewGenerationVX');
 
-function verifyNicValidityUsingVX(nic){
-    const VCOUNT = vxCounter.vCount(nic);
-    const XCOUNT = vxCounter.xCount(nic);
+class vxCheck{
 
-    const RULE1  = (VCOUNT == 1 && XCOUNT ==0);
+    constructor(nic){
+        this.nic = nic;
+    }
+
+    isValid(){
+        return validityUsingVX.verifyNicValidityUsingVX(this.nic);
+    }
+
+    isOldGeneration(){
+        return ForOldGenerationVX.vxCheckForOldGeneration(this.nic);
+    }
     
-    const RULE2  = (VCOUNT == 0 && XCOUNT ==1);
-    
-    const RULE3  = (VCOUNT == 0 && XCOUNT == 0);
-
-    const CHECK  = (RULE1 || RULE2 || RULE3);
-
-    return CHECK;
+    isNewGeneration(){
+        return ForNewGenerationVX.vxCheckForNewGeneration(this.nic);
+    }
 }
 
-function vxCheckForOldGeneration(nic){
-    const VCOUNT = vxCounter.vCount(nic);
-    const XCOUNT = vxCounter.xCount(nic);
-    const RULE1  = (VCOUNT == 1 && XCOUNT ==0);
-    const RULE2  = (VCOUNT == 0 && XCOUNT ==1);
-    const CHECK  = (RULE1 || RULE2);
-    return CHECK;
-}
-
-function vxCheckForNewGeneration(nic){
-    const VCOUNT = vxCounter.vCount(nic);
-    const XCOUNT = vxCounter.xCount(nic);
-    const RULE  = (VCOUNT == 0 && XCOUNT ==0);
-    const CHECK  = (RULE);
-    return CHECK;
-}
-module.exports ={
-    vxCheckForOldGeneration,
-    vxCheckForNewGeneration,
-    verifyNicValidityUsingVX
-    };
+module.exports ={vxCheck};
 

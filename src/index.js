@@ -10,8 +10,9 @@
     * @param  {String} nic  Identity card number of person. 
     */
 class lknic{
-    #nic = null 
-    constructor(nic){
+    #nic = null
+     
+    constructor(){
 
     }
 
@@ -23,13 +24,12 @@ class lknic{
      * @param {String} nic
      * @returns {boolean}
      */
-    static isValid(nic){
+    isValid(nic){
         // function body   
     }
 
-   
-
-
-
+    isValidLength(params) {
+        
+    }
 }
 

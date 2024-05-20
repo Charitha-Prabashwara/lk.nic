@@ -17,16 +17,6 @@ describe('Test length validation: id-001', () => {
             expect(response).toBe(inputResult === "true");
         }
     });
-
-    // test('Verification using fake nic numbers.', () => {
-    //     const response = model.lengthValidator('88888888888');
-    //     expect(response).toBe(true);
-    // });
-    
-    // test('Verification using random generated values.', () => {
-    //     const response = model.lengthValidator('88888888888');
-    //     expect(response).toBe(false);
-    // });
 });
 
 

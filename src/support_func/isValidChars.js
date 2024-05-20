@@ -8,7 +8,7 @@
 */
 function isValidChars(nic){
     const VALID_CHARACTERS = /[vVxX0-9]/gms;
-    const INVALID_CHARACTERS = /[a-uA-UwWyYzZ]/gms;
+    const INVALID_CHARACTERS = /[^vVxX0-9]/gms;
     return (!INVALID_CHARACTERS.test(nic) && VALID_CHARACTERS.test(nic));
 }
 

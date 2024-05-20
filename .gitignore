@@ -135,3 +135,10 @@ gitcommands.txt
 
 #temp exclude files.
 src/support_func/isInNumeric.js
+
+
+#ignore vscode setting and configs
+/.vscode
+
+#ignore dosc
+/docs

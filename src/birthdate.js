@@ -8,7 +8,7 @@ const getNicGeneration  = require('./whichGeneration');
 class BirthDate{
     #date;
     #nicNumber;
-
+    
     set IdentityNumber(nicNumber){
         this.#nicNumber = nicNumber;
     }

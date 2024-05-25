@@ -76,5 +76,24 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
         }
     });
 
+    test("validate code on 'birthday'. Method: day()", () => {
+       
+        for (let index = 0; index < real_nic.length; index++) {
+            
+            const dataSeparate = real_nic[index].split(':');
+            const nicNumber = dataSeparate[0];
+            //const inputResult = dataSeparate[1];
+            //const generation = dataSeparate[2];
+            //const birthYear = dataSeparate[3];
+            //const days = dataSeparate[4];
+            //const month = dataSeparate[5];
+            const dayofweek = dataSeparate[6];
+            
+            const response = new model.BirthDay(nicNumber).day;
+            expect(response).toBe(parseInt(dayofweek,10));
+            
+        }
+    });
+
 
 });

@@ -4,6 +4,8 @@ const vxCheckValidation = require('./v-and-xCheck');
 
 const getNicGeneration  = require('./whichGeneration');
 
+//import { parseISO, addDays, format } from '../node_modules/date-fns';
+
 class BirthDay{
     #date;
     #nicNumber;
@@ -46,12 +48,12 @@ class BirthDay{
 
     get #totalDaysOldGen(){
         const result = this.#nicNumber.slice(2, 5);
-        return parseInt(result, 10);
+        return parseInt(result);
     }
 
     get #totalDaysNewGen(){
         const result = this.#nicNumber.slice(4, 7);
-        return parseInt(result, 10);
+        return parseInt(result);
     }
 
     get birthYear(){
@@ -82,7 +84,6 @@ class BirthDay{
         }else if(GENERATIONRESULT == "2"){
             DAYS = this.#totalDaysNewGen;
         }else{return false;}
-
         if(DAYS > 500){DAYS -= 500;}
         return DAYS;
     }
@@ -110,7 +111,19 @@ class BirthDay{
     }
 
     get day(){
+        const YEAR = this.birthYear.toString();
+        let DAYS;
+        
+        if(parseInt(YEAR) % 4 == 0){
+            DAYS = this.days-1;
+        }else{
+            DAYS = this.days-2;
+        }
 
+        let DATE = new Date(YEAR);
+        DATE.setDate(DATE.getDate() + DAYS);
+        let result = parseInt(DATE.getDate());
+        return result;
     }
 
     get dayName(){

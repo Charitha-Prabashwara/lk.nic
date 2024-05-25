@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/Charitha-Prabashwara/lk.nic#readme",
   "devDependencies": {
-    
     "jest": "^29.7.0",
     "request": "^2.88.2"
   },
@@ -38,6 +37,8 @@
   ],
   "jest": {
     "testEnvironment": "node"
+  },
+  "dependencies": {
+    "date-fns": "^3.6.0"
   }
-  
 }

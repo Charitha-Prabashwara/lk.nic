@@ -29,17 +29,8 @@
     "jest": "^29.7.0",
     "request": "^2.88.2"
   },
-  "files": [
-    "src/index.js",
-    "src/lengthvalidator.js",
-    "src/support_func/isInNumeric.js",
-    "src/notInvalidChars.js"
-  ],
   "jest": {
     "testEnvironment": "node",
     "transform": {}
-  },
-  "dependencies": {
-    "date-fns": "^3.6.0"
   }
 }

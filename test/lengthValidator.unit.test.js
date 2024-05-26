@@ -1,4 +1,4 @@
-import lengthValidator from '../src/modules/validationModule/lengthValidator';
+import { lengthValidator } from 'lknic';
 import { realNic } from './testData';
 
 const real_nic = realNic();

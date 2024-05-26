@@ -1,4 +1,4 @@
-import isValidChars from '../src/support_func/isValidChars';
+import { isValidChars } from 'lknic';
 import { realNic } from './testData';
 
 const real_nic = realNic();

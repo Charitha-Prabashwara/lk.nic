@@ -1,4 +1,4 @@
-import Gender from '../src/modules/genderModule/gender';
+import { Gender } from 'lknic';
 import { realNic } from './testData';
 
 const real_nic = realNic();

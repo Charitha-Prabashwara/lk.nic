@@ -1,4 +1,4 @@
-import BirthDay from '../src/modules/birthdayModule/birthday';
+import {BirthDay} from 'lknic';
 import { realNic, monthNames as mn } from './testData';
 
 const real_nic = realNic();

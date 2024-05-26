@@ -1,4 +1,4 @@
-import vxCheck from '../src/modules/validationModule/v-and-xCheck';
+import { vxCheck } from 'lknic';
 import { realNic } from './testData';
 
 const real_nic = realNic();

@@ -1,7 +1,11 @@
-const lengthValidation = require('../validationModule/lengthValidator');
-const characterValidation = require('../validationModule/notInvalidChars');
-const vxCheckValidation = require('../validationModule/v-and-xCheck');
-const getNicGeneration  = require('../../modules/generationModule/whichGeneration');
+//const lengthValidation = require('../validationModule/lengthValidator');
+import lengthValidator from '../validationModule/lengthValidator';
+//const characterValidation = require('../validationModule/notInvalidChars');
+import isValidChars from '../../support_func/isValidChars';
+//const vxCheckValidation = require('../validationModule/v-and-xCheck');
+import vxCheck from '../validationModule/v-and-xCheck';
+//const getNicGeneration  = require('../../modules/generationModule/whichGeneration');
+import Generation from '../../modules/generationModule/whichGeneration';
 
 class BirthDay{
     #date;
@@ -15,9 +19,9 @@ class BirthDay{
 
     get isValidNIC(){
 
-        const LENGTHVALIDATION = lengthValidation.lengthValidator(this.#nicNumber);
-        const CHARACTERVALIDATION = characterValidation.ValidChars(this.#nicNumber);
-        const VXVALIDATION = new vxCheckValidation.vxCheck(this.#nicNumber).isValid();
+        const LENGTHVALIDATION = lengthValidator(this.#nicNumber);
+        const CHARACTERVALIDATION = isValidChars(this.#nicNumber);
+        const VXVALIDATION = new vxCheck(this.#nicNumber).isValid();
 
         if(LENGTHVALIDATION && CHARACTERVALIDATION && VXVALIDATION){
             return true;
@@ -27,7 +31,7 @@ class BirthDay{
     }
 
     get nicGeneration(){
-        const GENERATION = new getNicGeneration.Generation().witchGeneration(this.#nicNumber);
+        const GENERATION = new Generation().witchGeneration(this.#nicNumber);
         if(!GENERATION){return false;}
 
         this.#generation = GENERATION;
@@ -158,4 +162,4 @@ class BirthDay{
     
 }
 
-module.exports={BirthDay};
+export default BirthDay;

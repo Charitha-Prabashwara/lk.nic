@@ -1,5 +1,7 @@
-const isValidCharsModule = require('./isValidChars');
-function vCount(nic){
+//const isValidCharsModule = require('./isValidChars');
+import isValidChars from './isValidChars';
+
+export function vCount(nic){
 
     const TOLOWERCASE = nic.toLowerCase().split("");
     const CHECKCHARACTER_V = 'v';
@@ -10,7 +12,7 @@ function vCount(nic){
     }
     return VCOUNT;
 }
-function xCount(nic){
+export function xCount(nic){
 
     const TOLOWERCASE = nic.toLowerCase().split("");
     const CHECKCHARACTER_X = 'x';
@@ -21,4 +23,3 @@ function xCount(nic){
     }
     return XCOUNT;
 }
-module.exports ={vCount, xCount};

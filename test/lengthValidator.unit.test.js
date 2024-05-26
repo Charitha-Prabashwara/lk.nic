@@ -1,7 +1,9 @@
-const model = require('../src/modules/validationModule/lengthValidator');
-const testData = require('./testData');
+//const model = require('../src/modules/validationModule/lengthValidator');
+import lengthValidator from '../src/modules/validationModule/lengthValidator';
+//const testData = require('./testData');
+import { realNic } from './testData';
 
-real_nic = testData.real_nic;
+const real_nic = realNic();
 
 describe('Test length validation: id-001', () => {
 
@@ -13,7 +15,7 @@ describe('Test length validation: id-001', () => {
             const nicNumber = dataSeparate[0];
             const inputResult = dataSeparate[1];
 
-            const response = model.lengthValidator(nicNumber);
+            const response = lengthValidator(nicNumber);
             expect(response).toBe(inputResult === "true");
         }
     });

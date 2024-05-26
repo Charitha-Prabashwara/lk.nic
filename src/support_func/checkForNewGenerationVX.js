@@ -1,12 +1,10 @@
-const vxCounter = require('./vxCount');
-
+//const vxCounter = require('./vxCount');
+import { vCount, xCount } from './vxCount';
 function vxCheckForNewGeneration(nic){
-    const VCOUNT = vxCounter.vCount(nic);
-    const XCOUNT = vxCounter.xCount(nic);
+    const VCOUNT = vCount(nic);
+    const XCOUNT = xCount(nic);
     const RULE  = (VCOUNT == 0 && XCOUNT ==0);
     const CHECK  = (RULE);
     return CHECK;
 }
-module.exports = {
-    vxCheckForNewGeneration
-};
+export default vxCheckForNewGeneration;

@@ -1,7 +1,8 @@
-const model = require('../src/modules/generationModule/whichGeneration');
-const testData = require('./testData');
-
-real_nic = testData.real_nic;
+//const model = require('../src/modules/generationModule/whichGeneration');
+import Generation from '../src/modules/generationModule/whichGeneration';
+//const testData = require('./testData');
+import { realNic } from './testData';
+const real_nic = realNic();
 
 describe('Test identity number generation: id-001 , Module: Generation', () => {
 
@@ -14,7 +15,7 @@ describe('Test identity number generation: id-001 , Module: Generation', () => {
             //const inputResult = dataSeparate[1];
             const generation = dataSeparate[2];
 
-            const response = new model.Generation().witchGeneration(nicNumber);
+            const response = new Generation().witchGeneration(nicNumber);
             expect(response).not.toBe(false);
         }
     });
@@ -28,7 +29,7 @@ describe('Test identity number generation: id-001 , Module: Generation', () => {
             //const inputResult = dataSeparate[1];
             const generation = dataSeparate[2];
 
-            const response = new model.Generation().witchGeneration(nicNumber);
+            const response = new Generation().witchGeneration(nicNumber);
             expect(response).toBe(generation);
         }
     });

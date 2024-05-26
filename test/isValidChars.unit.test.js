@@ -1,7 +1,9 @@
-const model = require('../src/modules/validationModule/notInvalidChars');
-const testData = require('./testData');
+//const model = require('../src/modules/validationModule/notInvalidChars');
+import isValidChars from '../src/support_func/isValidChars';
+//const testData = require('./testData');
+import { realNic } from './testData';
 
-real_nic = testData.real_nic;
+const real_nic = realNic();
 
 describe("Test check valid char's in the nic.", ()=>{
     
@@ -12,7 +14,7 @@ describe("Test check valid char's in the nic.", ()=>{
             const nicNumber = dataSeparate[0];
             const inputResult = dataSeparate[1];
 
-            const response = model.ValidChars(nicNumber);
+            const response = isValidChars(nicNumber);
             expect(response).toBe(inputResult === "true");
             
         }

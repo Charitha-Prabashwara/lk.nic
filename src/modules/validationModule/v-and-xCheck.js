@@ -1,6 +1,9 @@
-const validityUsingVX = require('../../support_func/nicValidityUsingVX');
-const ForOldGenerationVX = require('../../support_func/checkForOldGenerationVX');
-const ForNewGenerationVX = require('../../support_func/checkForNewGenerationVX');
+//const validityUsingVX = require('../../support_func/nicValidityUsingVX');
+import verifyNicValidityUsingVX from '../../support_func/nicValidityUsingVX'
+//const ForOldGenerationVX = require('../../support_func/checkForOldGenerationVX');
+import vxCheckForOldGeneration from '../../support_func/checkForOldGenerationVX';
+//const ForNewGenerationVX = require('../../support_func/checkForNewGenerationVX');
+import vxCheckForNewGeneration from '../../support_func/checkForNewGenerationVX';
 
 class vxCheck{
 
@@ -9,17 +12,16 @@ class vxCheck{
     }
 
     isValid(){
-        return validityUsingVX.verifyNicValidityUsingVX(this.nic);
+        return verifyNicValidityUsingVX(this.nic);
     }
 
     isOldGeneration(){
-        return ForOldGenerationVX.vxCheckForOldGeneration(this.nic);
+        return vxCheckForOldGeneration(this.nic);
     }
     
     isNewGeneration(){
-        return ForNewGenerationVX.vxCheckForNewGeneration(this.nic);
+        return vxCheckForNewGeneration(this.nic);
     }
 }
 
-module.exports ={vxCheck};
-
+export default vxCheck;

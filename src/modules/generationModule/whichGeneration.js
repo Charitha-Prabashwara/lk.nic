@@ -1,14 +1,16 @@
-const lengthValidator = require('../validationModule/lengthValidator');
-const validChar = require('../validationModule/notInvalidChars')
-const vxCheck = require('../validationModule/v-and-xCheck');
-
+//const lengthValidator = require('../validationModule/lengthValidator');
+//const validChar = require('../validationModule/notInvalidChars')
+//const vxCheck = require('../validationModule/v-and-xCheck');
+import vxCheck from '../validationModule/v-and-xCheck';
+import lengthValidator from '../validationModule/lengthValidator';
+import ValidChars from '../validationModule/notInvalidChars';
 //import {InvalidLengthException, invalidCharacterException} from './exceptions/exceptions';
 
 
 class Generation{
-    #isLengthValid(nic){return lengthValidator.lengthValidator(nic);}
-    #isValidChar(nic){return validChar.ValidChars(nic)} 
-    #vxCheck(nic){return new vxCheck.vxCheck(nic).isValid();} 
+    #isLengthValid(nic){return lengthValidator(nic);}
+    #isValidChar(nic){return ValidChars(nic)} 
+    #vxCheck(nic){return new vxCheck(nic).isValid();} 
 
     #determiningTheGenerationFromChar(nic){
         
@@ -16,8 +18,8 @@ class Generation{
         if(!this.#isValidChar(nic)){return false;}
 
         if(this.#vxCheck(nic)){
-            const isOldGen = new vxCheck.vxCheck(nic).isOldGeneration();
-            const isNewGen = new vxCheck.vxCheck(nic).isNewGeneration();
+            const isOldGen = new vxCheck(nic).isOldGeneration();
+            const isNewGen = new vxCheck(nic).isNewGeneration();
             
             if(isOldGen){return "1";}
             if(isNewGen){return "2";}
@@ -63,4 +65,4 @@ class Generation{
     }
 }
 
-module.exports = {Generation};
+export default Generation;

@@ -89,12 +89,20 @@ class BirthDay{
     }
 
     get month(){
-        const YEAR = this.birthYear.toString() + "-01-01";
-        const DAYS = this.days -1;
+        const YEAR = this.birthYear.toString();
+        let DAYS;
+        
+        if(parseInt(YEAR) % 4 == 0){
+            DAYS = this.days-1;
+        }else{
+            DAYS = this.days-2;
+        }
 
-        const DATE = new Date(YEAR);
+        let DATE = new Date(YEAR);
         DATE.setDate(DATE.getDate() + DAYS);
-        return parseInt(DATE.getMonth()+1, 10);
+        let result = parseInt(DATE.getMonth()+1);
+        return result;
+    
     }
 
     get monthName(){
@@ -127,7 +135,21 @@ class BirthDay{
     }
 
     get dayName(){
+        const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const YEAR = this.birthYear.toString();
+        let DAYS;
         
+        if(parseInt(YEAR) % 4 == 0){
+            DAYS = this.days-1;
+        }else{
+            DAYS = this.days-2;
+        }
+
+        let DATE = new Date(YEAR);
+        DATE.setDate(DATE.getDate() + DAYS);
+        let result = weekDays[parseInt(DATE.getDay())];
+        return result;
+    
     }
 
     

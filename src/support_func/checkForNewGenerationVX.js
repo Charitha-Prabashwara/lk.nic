@@ -1,5 +1,5 @@
-//const vxCounter = require('./vxCount');
 import { vCount, xCount } from './vxCount';
+
 function vxCheckForNewGeneration(nic){
     const VCOUNT = vCount(nic);
     const XCOUNT = xCount(nic);

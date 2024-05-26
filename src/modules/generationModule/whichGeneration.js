@@ -1,10 +1,6 @@
-//const lengthValidator = require('../validationModule/lengthValidator');
-//const validChar = require('../validationModule/notInvalidChars')
-//const vxCheck = require('../validationModule/v-and-xCheck');
 import vxCheck from '../validationModule/v-and-xCheck';
 import lengthValidator from '../validationModule/lengthValidator';
 import ValidChars from '../validationModule/notInvalidChars';
-//import {InvalidLengthException, invalidCharacterException} from './exceptions/exceptions';
 
 
 class Generation{

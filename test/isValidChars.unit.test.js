@@ -1,6 +1,4 @@
-//const model = require('../src/modules/validationModule/notInvalidChars');
 import isValidChars from '../src/support_func/isValidChars';
-//const testData = require('./testData');
 import { realNic } from './testData';
 
 const real_nic = realNic();

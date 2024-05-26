@@ -1,6 +1,4 @@
-//const model = require('../src/modules/birthdayModule/birthday');
 import BirthDay from '../src/modules/birthdayModule/birthday';
-//const testData = require('./testData');
 import { realNic, monthNames as mn } from './testData';
 
 const real_nic = realNic();

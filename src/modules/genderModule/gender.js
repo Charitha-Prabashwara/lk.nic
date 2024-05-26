@@ -1,10 +1,6 @@
-//const lengthValidation = require('../validationModule/lengthValidator');
 import lengthValidator from '../validationModule/lengthValidator';
-//const characterValidation = require('../validationModule/notInvalidChars');
 import ValidChars from '../validationModule/notInvalidChars';
-//const vxCheckValidation = require('../validationModule/v-and-xCheck');
 import vxCheck from '../validationModule/v-and-xCheck';
-//const getNicGeneration  = require('../../modules/generationModule/whichGeneration');
 import Generation from '../../modules/generationModule/whichGeneration';
 
 class Gender{

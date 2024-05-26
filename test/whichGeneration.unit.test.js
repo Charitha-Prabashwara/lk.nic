@@ -1,7 +1,6 @@
-//const model = require('../src/modules/generationModule/whichGeneration');
 import Generation from '../src/modules/generationModule/whichGeneration';
-//const testData = require('./testData');
 import { realNic } from './testData';
+
 const real_nic = realNic();
 
 describe('Test identity number generation: id-001 , Module: Generation', () => {

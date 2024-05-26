@@ -1,7 +1,6 @@
-//const model = require('../src/modules/validationModule/v-and-xCheck');
 import vxCheck from '../src/modules/validationModule/v-and-xCheck';
-//const testData = require('./testData');
 import { realNic } from './testData';
+
 const real_nic = realNic();
 
 describe("Test check vV,xX characters in the nic.", ()=>{

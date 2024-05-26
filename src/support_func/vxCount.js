@@ -1,4 +1,3 @@
-//const isValidCharsModule = require('./isValidChars');
 import isValidChars from './isValidChars';
 
 export function vCount(nic){

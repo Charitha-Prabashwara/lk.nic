@@ -1,6 +1,4 @@
-//const model = require('../src/modules/validationModule/lengthValidator');
 import lengthValidator from '../src/modules/validationModule/lengthValidator';
-//const testData = require('./testData');
 import { realNic } from './testData';
 
 const real_nic = realNic();

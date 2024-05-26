@@ -1,4 +1,3 @@
-//const vxCounter = require('./vxCount');
 import { vCount, xCount } from './vxCount';
 
 function vxCheckForOldGeneration(nic){

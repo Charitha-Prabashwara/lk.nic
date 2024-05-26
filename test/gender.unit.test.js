@@ -1,6 +1,4 @@
-//const model = require('../src/modules/genderModule/gender');
 import Gender from '../src/modules/genderModule/gender';
-//const testData = require('./testData');
 import { realNic } from './testData';
 
 const real_nic = realNic();

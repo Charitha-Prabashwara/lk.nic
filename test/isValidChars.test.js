@@ -1,4 +1,4 @@
-const model = require('../src/notInvalidChars');
+const model = require('../src/modules/validationModule/notInvalidChars');
 const testData = require('./testData');
 
 real_nic = testData.real_nic;

@@ -1,4 +1,4 @@
-const model = require('../src/lengthValidator');
+const model = require('../src/modules/validationModule/lengthValidator');
 const testData = require('./testData');
 
 real_nic = testData.real_nic;

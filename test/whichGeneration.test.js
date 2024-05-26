@@ -1,4 +1,4 @@
-const model = require('../src/whichGeneration');
+const model = require('../src/modules/generationModule/whichGeneration');
 const testData = require('./testData');
 
 real_nic = testData.real_nic;

@@ -1,4 +1,4 @@
-const model = require('../src/gender');
+const model = require('../src/modules/genderModule/gender');
 const testData = require('./testData');
 
 real_nic = testData.real_nic;

@@ -1,4 +1,4 @@
-const model = require('../src/birthday');
+const model = require('../src/modules/birthdayModule/birthday');
 const testData = require('./testData');
 
 real_nic = testData.real_nic;

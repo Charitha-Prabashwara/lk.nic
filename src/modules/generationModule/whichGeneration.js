@@ -1,6 +1,6 @@
-const lengthValidator = require('./lengthValidator');
-const validChar = require('./notInvalidChars');
-const vxCheck = require('./v-and-xCheck');
+const lengthValidator = require('../validationModule/lengthValidator');
+const validChar = require('../validationModule/notInvalidChars')
+const vxCheck = require('../validationModule/v-and-xCheck');
 
 //import {InvalidLengthException, invalidCharacterException} from './exceptions/exceptions';
 

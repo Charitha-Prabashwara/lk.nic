@@ -1,4 +1,4 @@
-const model = require('../src/v-and-xCheck');
+const model = require('../src/modules/validationModule/v-and-xCheck');
 const testData = require('./testData');
 
 real_nic = testData.real_nic;

@@ -1,7 +1,7 @@
-const lengthValidation = require('./lengthValidator');
-const characterValidation = require('./notInvalidChars');
-const vxCheckValidation = require('./v-and-xCheck');
-const getNicGeneration  = require('./whichGeneration');
+const lengthValidation = require('../validationModule/lengthValidator');
+const characterValidation = require('../validationModule/notInvalidChars');
+const vxCheckValidation = require('../validationModule/v-and-xCheck');
+const getNicGeneration  = require('../../modules/generationModule/whichGeneration');
 
 class BirthDay{
     #date;

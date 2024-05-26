@@ -1,6 +1,6 @@
-const validityUsingVX = require('./support_func/nicValidityUsingVX');
-const ForOldGenerationVX = require('./support_func/checkForOldGenerationVX');
-const ForNewGenerationVX = require('./support_func/checkForNewGenerationVX');
+const validityUsingVX = require('../../support_func/nicValidityUsingVX');
+const ForOldGenerationVX = require('../../support_func/checkForOldGenerationVX');
+const ForNewGenerationVX = require('../../support_func/checkForNewGenerationVX');
 
 class vxCheck{
 

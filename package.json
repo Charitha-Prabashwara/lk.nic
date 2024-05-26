@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "test": "jest",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "testSpecific": "jest -t --rumTestByPath ./dealRelatedFeatures/*"
   },
   "repository": {
@@ -36,7 +36,8 @@
     "src/notInvalidChars.js"
   ],
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "transform": {}
   },
   "dependencies": {
     "date-fns": "^3.6.0"

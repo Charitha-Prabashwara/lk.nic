@@ -2,7 +2,6 @@ const model = require('../src/birthday');
 const testData = require('./testData');
 
 real_nic = testData.real_nic;
-monthNames = testData.monthNames;
 
 describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
 
@@ -12,8 +11,6 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             
             const dataSeparate = real_nic[index].split(':');
             const nicNumber = dataSeparate[0];
-            //const inputResult = dataSeparate[1];
-            //const generation = dataSeparate[2];
             const birthYear = dataSeparate[3];
 
             const response = new model.BirthDay(nicNumber).birthYear;
@@ -28,9 +25,6 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             
             const dataSeparate = real_nic[index].split(':');
             const nicNumber = dataSeparate[0];
-            //const inputResult = dataSeparate[1];
-            //const generation = dataSeparate[2];
-            //const birthYear = dataSeparate[3];
             const days = dataSeparate[4];
 
             const response = new model.BirthDay(nicNumber).days;
@@ -45,15 +39,11 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             
             const dataSeparate = real_nic[index].split(':');
             const nicNumber = dataSeparate[0];
-            //const inputResult = dataSeparate[1];
-            //const generation = dataSeparate[2];
-            //const birthYear = dataSeparate[3];
-            //const days = dataSeparate[4];
             const month = dataSeparate[5];
 
             const response = new model.BirthDay(nicNumber).month;
             expect(response).toBe(parseInt(month,10));
-            
+            expect(response).not.toBe(false);
         }
     });
 
@@ -64,15 +54,11 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             
             const dataSeparate = real_nic[index].split(':');
             const nicNumber = dataSeparate[0];
-            //const inputResult = dataSeparate[1];
-            //const generation = dataSeparate[2];
-            //const birthYear = dataSeparate[3];
-            //const days = dataSeparate[4];
             const month = dataSeparate[5];
-
+            
             const response = new model.BirthDay(nicNumber).monthName;
             expect(response).toBe(monthNames[parseInt(month,10)]);
-            
+            expect(response).not.toBe(false);
         }
     });
 
@@ -82,16 +68,10 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             
             const dataSeparate = real_nic[index].split(':');
             const nicNumber = dataSeparate[0];
-            //const inputResult = dataSeparate[1];
-            //const generation = dataSeparate[2];
-            //const birthYear = dataSeparate[3];
-            //const days = dataSeparate[4];
-            //const month = dataSeparate[5];
-            const dayofweek = dataSeparate[6];
-            
+            const dayofweek = dataSeparate[6];         
             const response = new model.BirthDay(nicNumber).day;
             expect(response).toBe(parseInt(dayofweek,10));
-            
+            expect(response).not.toBe(false);
         }
     });
 
@@ -101,17 +81,11 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             
             const dataSeparate = real_nic[index].split(':');
             const nicNumber = dataSeparate[0];
-            //const inputResult = dataSeparate[1];
-            //const generation = dataSeparate[2];
-            //const birthYear = dataSeparate[3];
-            //const days = dataSeparate[4];
-            //const month = dataSeparate[5];
-            //const dayofweek = dataSeparate[6];
             const dayName = dataSeparate[7];
-            const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
             const response = new model.BirthDay(nicNumber).dayName;
             expect(response).toBe(dayName);
+            expect(response).not.toBe(false);
             
         }
     });

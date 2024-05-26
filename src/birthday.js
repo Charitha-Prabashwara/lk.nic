@@ -1,18 +1,16 @@
 const lengthValidation = require('./lengthValidator');
 const characterValidation = require('./notInvalidChars');
 const vxCheckValidation = require('./v-and-xCheck');
-
 const getNicGeneration  = require('./whichGeneration');
-
-//import { parseISO, addDays, format } from '../node_modules/date-fns';
 
 class BirthDay{
     #date;
     #nicNumber;
     #generation;
     
-    set IdentityNumber(nicNumber){
+    set setIdentityNumber(nicNumber){
         this.#nicNumber = nicNumber;
+        return this.isValidNIC;
     }
 
     get isValidNIC(){
@@ -113,11 +111,6 @@ class BirthDay{
         
         return monthNames[this.month];
     }
-
-    get week(){
-
-    }
-
     get day(){
         const YEAR = this.birthYear.toString();
         let DAYS;
@@ -154,13 +147,15 @@ class BirthDay{
 
     
 
-    constructor(nicNumber){
-        this.#nicNumber = nicNumber;
-        
-        //if(!this.isValidNIC()){return false;}
-
-
+    constructor(nicNumber ='undefined'){ 
+        if(!(typeof(nicNumber) === 'undefined')){
+            this.#nicNumber = nicNumber;
+            if(!this.isValidNIC){return false;}
+        }
     }
+
+
+    
 }
 
 module.exports={BirthDay};

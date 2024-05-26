@@ -1,7 +1,7 @@
 {
-  "name": "lk.nic",
+  "name": "lknic",
   "version": "1.0.0",
-  "description": "LK.NIC (Srl Lanka National Identity Card). This is a front-end library. Reading the information encoded in Sri Lanka's national identity card number (date of birth, gender, citizenship, or foreignness) and identity card number verification can be easily done using this library.",
+  "description": "LKNIC (Srl Lanka National Identity Card). This is a front-end library. Reading the information encoded in Sri Lanka's national identity card number (date of birth, gender, citizenship, or foreignness) and identity card number verification can be easily done using this library.",
   "main": "src/index.js",
   "type": "module",
   "scripts": {

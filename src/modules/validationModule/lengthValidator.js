@@ -9,4 +9,4 @@
 function lengthValidator(nic){  
     return (nic.length == 10 || nic.length == 12);
 }
-module.exports = {lengthValidator};
+export default lengthValidator;

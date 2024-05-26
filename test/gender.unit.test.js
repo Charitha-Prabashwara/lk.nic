@@ -1,7 +1,7 @@
-const model = require('../src/modules/genderModule/gender');
-const testData = require('./testData');
+import Gender from '../src/modules/genderModule/gender';
+import { realNic } from './testData';
 
-real_nic = testData.real_nic;
+const real_nic = realNic();
 
 describe('Test identity, calculate gender: id-001 , Module: gender', () => {
 
@@ -13,7 +13,7 @@ describe('Test identity, calculate gender: id-001 , Module: gender', () => {
             const nicNumber = dataSeparate[0];
             const gender = dataSeparate[8];
 
-            const response = new model.Gender(nicNumber).genderRoStr;
+            const response = new Gender(nicNumber).genderRoStr;
             expect(response).toBe(gender);
             expect(response).not.toBe(false);
         }
@@ -27,7 +27,7 @@ describe('Test identity, calculate gender: id-001 , Module: gender', () => {
             const nicNumber = dataSeparate[0];
             let gender = dataSeparate[8];
 
-            const response = new model.Gender(nicNumber).genderToInt;
+            const response = new Gender(nicNumber).genderToInt;
             if(gender == "male"){gender = 1;}
             if(gender == "female"){gender = 2;}
             expect(response).toBe(gender);
@@ -43,7 +43,7 @@ describe('Test identity, calculate gender: id-001 , Module: gender', () => {
             const nicNumber = dataSeparate[0];
             let gender = dataSeparate[8];
 
-            const response = new model.Gender(nicNumber).isMale;
+            const response = new Gender(nicNumber).isMale;
             if(gender == "male"){gender = true;}
             if(gender == "female"){gender = false;}
             expect(response).toBe(gender);
@@ -58,7 +58,7 @@ describe('Test identity, calculate gender: id-001 , Module: gender', () => {
             const nicNumber = dataSeparate[0];
             let gender = dataSeparate[8];
 
-            const response = new model.Gender(nicNumber).isFemale;
+            const response = new Gender(nicNumber).isFemale;
             if(gender == "male"){gender = false;}
             if(gender == "female"){gender = true;}
             expect(response).toBe(gender);
@@ -67,3 +67,4 @@ describe('Test identity, calculate gender: id-001 , Module: gender', () => {
 
 
 });
+

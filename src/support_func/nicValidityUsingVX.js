@@ -1,8 +1,8 @@
-const vxCounter = require('./vxCount');
+import { vCount, xCount } from "./vxCount";
 
 function verifyNicValidityUsingVX(nic){
-    const VCOUNT = vxCounter.vCount(nic);
-    const XCOUNT = vxCounter.xCount(nic);
+    const VCOUNT = vCount(nic);
+    const XCOUNT = xCount(nic);
 
     const RULE1  = (VCOUNT == 1 && XCOUNT ==0);
     const RULE2  = (VCOUNT == 0 && XCOUNT ==1);
@@ -10,6 +10,4 @@ function verifyNicValidityUsingVX(nic){
     const CHECK  = (RULE1 || RULE2 || RULE3);
     return CHECK;
 }
-module.exports = {
-    verifyNicValidityUsingVX
-};
+export default verifyNicValidityUsingVX;

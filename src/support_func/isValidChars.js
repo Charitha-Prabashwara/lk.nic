@@ -12,6 +12,4 @@ function isValidChars(nic){
     return (!INVALID_CHARACTERS.test(nic) && VALID_CHARACTERS.test(nic));
 }
 
-module.exports ={
-    isValidChars
-}
+export default isValidChars;

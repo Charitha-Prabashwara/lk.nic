@@ -1,7 +1,8 @@
-const model = require('../src/modules/birthdayModule/birthday');
-const testData = require('./testData');
+import BirthDay from '../src/modules/birthdayModule/birthday';
+import { realNic, monthNames as mn } from './testData';
 
-real_nic = testData.real_nic;
+const real_nic = realNic();
+const monthNames = mn();
 
 describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
 
@@ -13,7 +14,7 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             const nicNumber = dataSeparate[0];
             const birthYear = dataSeparate[3];
 
-            const response = new model.BirthDay(nicNumber).birthYear;
+            const response = new BirthDay(nicNumber).birthYear;
             expect(response).toBe(parseInt(birthYear,10));
             expect(response).not.toBe(false);
         }
@@ -27,7 +28,7 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             const nicNumber = dataSeparate[0];
             const days = dataSeparate[4];
 
-            const response = new model.BirthDay(nicNumber).days;
+            const response = new BirthDay(nicNumber).days;
             expect(response).toBe(parseInt(days,10));
             expect(response).not.toBe(false);
         }
@@ -41,7 +42,7 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             const nicNumber = dataSeparate[0];
             const month = dataSeparate[5];
 
-            const response = new model.BirthDay(nicNumber).month;
+            const response = new BirthDay(nicNumber).month;
             expect(response).toBe(parseInt(month,10));
             expect(response).not.toBe(false);
         }
@@ -56,7 +57,7 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             const nicNumber = dataSeparate[0];
             const month = dataSeparate[5];
             
-            const response = new model.BirthDay(nicNumber).monthName;
+            const response = new BirthDay(nicNumber).monthName;
             expect(response).toBe(monthNames[parseInt(month,10)]);
             expect(response).not.toBe(false);
         }
@@ -69,7 +70,7 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             const dataSeparate = real_nic[index].split(':');
             const nicNumber = dataSeparate[0];
             const dayofweek = dataSeparate[6];         
-            const response = new model.BirthDay(nicNumber).day;
+            const response = new BirthDay(nicNumber).day;
             expect(response).toBe(parseInt(dayofweek,10));
             expect(response).not.toBe(false);
         }
@@ -83,7 +84,7 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             const nicNumber = dataSeparate[0];
             const dayName = dataSeparate[7];
 
-            const response = new model.BirthDay(nicNumber).dayName;
+            const response = new BirthDay(nicNumber).dayName;
             expect(response).toBe(dayName);
             expect(response).not.toBe(false);
             

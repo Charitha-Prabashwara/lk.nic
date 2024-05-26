@@ -1,4 +1,4 @@
-const isValidCharsModule = require('../../support_func/isValidChars');
+import isValidChars from '../../support_func/isValidChars';
 /**
     * This returns true if the nic number string length is valid.
     * @memberof lknic
@@ -8,7 +8,7 @@ const isValidCharsModule = require('../../support_func/isValidChars');
     * @returns {boolean}
 */
 function ValidChars(nic){  
-    return (isValidCharsModule.isValidChars(nic));
+    return (isValidChars(nic));
 }
 
-module.exports = {ValidChars};
+export default ValidChars;

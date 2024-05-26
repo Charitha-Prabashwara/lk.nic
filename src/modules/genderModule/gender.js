@@ -1,7 +1,7 @@
-const lengthValidation = require('../validationModule/lengthValidator');
-const characterValidation = require('../validationModule/notInvalidChars');
-const vxCheckValidation = require('../validationModule/v-and-xCheck');
-const getNicGeneration  = require('../../modules/generationModule/whichGeneration');
+import lengthValidator from '../validationModule/lengthValidator';
+import ValidChars from '../validationModule/notInvalidChars';
+import vxCheck from '../validationModule/v-and-xCheck';
+import Generation from '../../modules/generationModule/whichGeneration';
 
 class Gender{
     #nicNumber;
@@ -57,7 +57,7 @@ class Gender{
     }
 
     get nicGeneration(){
-        const GENERATION = new getNicGeneration.Generation().witchGeneration(this.#nicNumber);
+        const GENERATION = new Generation().witchGeneration(this.#nicNumber);
         if(!GENERATION){return false;}
 
         this.#generation = GENERATION;
@@ -76,9 +76,9 @@ class Gender{
 
     get isValidNIC(){
 
-        const LENGTHVALIDATION = lengthValidation.lengthValidator(this.#nicNumber);
-        const CHARACTERVALIDATION = characterValidation.ValidChars(this.#nicNumber);
-        const VXVALIDATION = new vxCheckValidation.vxCheck(this.#nicNumber).isValid();
+        const LENGTHVALIDATION = lengthValidator(this.#nicNumber);
+        const CHARACTERVALIDATION = ValidChars(this.#nicNumber);
+        const VXVALIDATION = new vxCheck(this.#nicNumber).isValid();
 
         if(LENGTHVALIDATION && CHARACTERVALIDATION && VXVALIDATION){
             return true;
@@ -100,4 +100,4 @@ class Gender{
     }
 }
 
-module.exports ={Gender};
+export default Gender;

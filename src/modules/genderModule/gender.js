@@ -7,7 +7,7 @@ class Gender{
     #nicNumber;
     #generation;
 
-    get genderRoStr(){
+    get genderToStr(){
         const generation = this.nicGeneration;
         let totalDays;
         
@@ -22,7 +22,7 @@ class Gender{
         if(totalDays > 500){
             return 'female';
         }else if(totalDays < 500){
-            return 'male'
+            return 'male';
         }else{
             return false;
         }

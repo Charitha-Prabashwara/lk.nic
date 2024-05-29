@@ -13,7 +13,7 @@ describe('Test identity, calculate gender: id-001 , Module: gender', () => {
             const nicNumber = dataSeparate[0];
             const gender = dataSeparate[8];
 
-            const response = new Gender(nicNumber).genderRoStr;
+            const response = new Gender(nicNumber).genderToStr;
             expect(response).toBe(gender);
             expect(response).not.toBe(false);
         }

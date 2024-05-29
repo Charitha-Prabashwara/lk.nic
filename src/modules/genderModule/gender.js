@@ -29,7 +29,7 @@ class Gender{
     }
 
     get genderToInt(){
-        const gender = this.genderRoStr;
+        const gender = this.genderToStr;
         if(gender == 'female'){
             return 2;
         }else if(gender == 'male'){
@@ -40,7 +40,7 @@ class Gender{
     }
 
     get isMale(){
-        const gender = this.genderRoStr;
+        const gender = this.genderToStr;
         if(gender == 'male'){
             return true;
         }else{
@@ -48,7 +48,7 @@ class Gender{
         }
     }
     get isFemale(){
-        const gender = this.genderRoStr;
+        const gender = this.genderToStr;
         if(gender == 'female'){
             return true;
         }else{

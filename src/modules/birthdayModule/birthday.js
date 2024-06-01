@@ -1,8 +1,6 @@
-import lengthValidator from '../validationModule/lengthValidator';
-import isValidChars from '../../support_func/isValidChars';
-import vxCheck from '../validationModule/v-and-xCheck';
-import Generation from '../../modules/generationModule/whichGeneration';
-import Validate from '../validationModule/validation';
+
+import Generation from '../../modules/generationModule/whichGeneration.js';
+import Validate from '../validationModule/validation.js';
 
 class BirthDay{
     #date;

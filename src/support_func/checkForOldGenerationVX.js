@@ -1,4 +1,4 @@
-import { vCount, xCount } from './vxCount';
+import { vCount, xCount } from './vxCount.js';
 
 function vxCheckForOldGeneration(nic){
     const VCOUNT = vCount(nic);

@@ -11,18 +11,18 @@ Most of the services run as Web systems. Therefore, it is essential to verify th
 You can use "**lknic**" to easily verify your 'National ID' number, retrieve coded information, and perform calculations using ID numbers.
 _(in web forms - user frontend)_
 
-### <span style="color:yellow">Key features</span>
+#### Key features
 
 * Validation.
 * Find the date of birth.
 * Gender
 * National identity-card Generation.
 
-##### <span style="color:red">**_The above mentioned are the basic features and new features are expected to be introduced in the new versions._**</span>
 
+_The above mentioned are the basic features and new features are expected to be introduced in the new versions._
 
 ## Installation
-
+lknic is an **npm** package. The base language is JavaScript and we hope to introduce versions using _**Python**_, _**PHP**_, and _**Java**_ languages ​​in future versions.
 ```console
 npm install lknic
 ```

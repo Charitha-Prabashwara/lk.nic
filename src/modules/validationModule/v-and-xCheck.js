@@ -1,6 +1,6 @@
-import verifyNicValidityUsingVX from '../../support_func/nicValidityUsingVX'
-import vxCheckForOldGeneration from '../../support_func/checkForOldGenerationVX';
-import vxCheckForNewGeneration from '../../support_func/checkForNewGenerationVX';
+import verifyNicValidityUsingVX from '../../support_func/nicValidityUsingVX.js'
+import vxCheckForOldGeneration from '../../support_func/checkForOldGenerationVX.js';
+import vxCheckForNewGeneration from '../../support_func/checkForNewGenerationVX.js';
 
 class vxCheck{
 

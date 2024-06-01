@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "testSpecific": "jest -t --rumTestByPath ./dealRelatedFeatures/*"
+    "testSpecific": "jest -t --rumTestByPath ./dealRelatedFeatures/*",
+    "start": "node nic.js"
   },
   "repository": {
     "type": "git",

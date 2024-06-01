@@ -1,7 +1,6 @@
-import lengthValidator from '../validationModule/lengthValidator';
-import Generation from '../../modules/generationModule/whichGeneration';
-import Validate from '../validationModule/validation';
-import DayRange from '../validationModule/dayRange';
+import Generation from '../../modules/generationModule/whichGeneration.js';
+import Validate from '../validationModule/validation.js';
+import DayRange from '../validationModule/dayRange.js';
 
 class Gender{
     #nicNumber;

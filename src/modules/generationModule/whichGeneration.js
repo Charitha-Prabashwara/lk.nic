@@ -1,6 +1,6 @@
-import vxCheck from '../validationModule/v-and-xCheck';
-import lengthValidator from '../validationModule/lengthValidator';
-import ValidChars from '../validationModule/notInvalidChars';
+import vxCheck from '../validationModule/v-and-xCheck.js';
+import lengthValidator from '../validationModule/lengthValidator.js';
+import ValidChars from '../validationModule/notInvalidChars.js';
 
 
 class Generation{

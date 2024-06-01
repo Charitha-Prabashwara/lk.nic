@@ -1,4 +1,4 @@
-import isValidChars from './isValidChars';
+import isValidChars from './isValidChars.js';
 
 export function vCount(nic){
 

@@ -1,4 +1,4 @@
-import isValidChars from '../../support_func/isValidChars';
+import isValidChars from '../../support_func/isValidChars.js';
 /**
     * This returns true if the nic number string length is valid.
     * @memberof lknic

@@ -1,7 +1,7 @@
-import lengthValidator from './lengthValidator';
-import ValidChars from './notInvalidChars';
-import vxCheck from './v-and-xCheck';
-import DayRange from './dayRange';
+import lengthValidator from './lengthValidator.js';
+import ValidChars from './notInvalidChars.js';
+import vxCheck from './v-and-xCheck.js';
+import DayRange from './dayRange.js';
 
 class Validate{
     #isValidLength;

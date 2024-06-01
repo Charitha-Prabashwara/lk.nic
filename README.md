@@ -11,15 +11,15 @@ Most of the services run as Web systems. Therefore, it is essential to verify th
 You can use "**lknic**" to easily verify your 'National ID' number, retrieve coded information, and perform calculations using ID numbers.
 _(in web forms - user frontend)_
 
-#### Key features
+### <span style="color:yellow">Key features</span>
 
 * Validation.
 * Find the date of birth.
 * Gender
 * National identity-card Generation.
 
+##### <span style="color:red">**_The above mentioned are the basic features and new features are expected to be introduced in the new versions._**</span>
 
-_The above mentioned are the basic features and new features are expected to be introduced in the new versions._
 
 ## Installation
 

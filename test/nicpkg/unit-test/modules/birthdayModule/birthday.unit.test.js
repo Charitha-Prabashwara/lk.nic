@@ -1,5 +1,5 @@
 import {BirthDay} from 'lknic';
-import { realNic, monthNames as mn } from './testData';
+import { realNic, monthNames as mn } from '../../../../testData';
 
 const real_nic = realNic();
 const monthNames = mn();

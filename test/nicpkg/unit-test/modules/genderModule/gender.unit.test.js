@@ -1,5 +1,5 @@
 import { Gender } from 'lknic';
-import { realNic } from './testData';
+import { realNic } from '../../../../testData';
 
 const real_nic = realNic();
 

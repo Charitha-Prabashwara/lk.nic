@@ -2,28 +2,16 @@ import lengthValidator from '../validationModule/lengthValidator';
 import isValidChars from '../../support_func/isValidChars';
 import vxCheck from '../validationModule/v-and-xCheck';
 import Generation from '../../modules/generationModule/whichGeneration';
+import Validate from '../validationModule/validation';
 
 class BirthDay{
     #date;
     #nicNumber;
     #generation;
-    
+    #validator= new Validate();
     set setIdentityNumber(nicNumber){
         this.#nicNumber = nicNumber;
-        return this.isValidNIC;
-    }
-
-    get isValidNIC(){
-
-        const LENGTHVALIDATION = lengthValidator(this.#nicNumber);
-        const CHARACTERVALIDATION = isValidChars(this.#nicNumber);
-        const VXVALIDATION = new vxCheck(this.#nicNumber).isValid();
-
-        if(LENGTHVALIDATION && CHARACTERVALIDATION && VXVALIDATION){
-            return true;
-        }else{
-            return false;
-        }
+        return this.#validator.isValidNIC(nicNumber);
     }
 
     get nicGeneration(){
@@ -150,7 +138,7 @@ class BirthDay{
     constructor(nicNumber ='undefined'){ 
         if(!(typeof(nicNumber) === 'undefined')){
             this.#nicNumber = nicNumber;
-            if(!this.isValidNIC){return false;}
+            if(!this.#validator.isValidNIC(nicNumber)){return false;}
         }
     }
 

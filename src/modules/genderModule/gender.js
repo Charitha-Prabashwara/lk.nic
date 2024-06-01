@@ -1,11 +1,13 @@
 import lengthValidator from '../validationModule/lengthValidator';
-import ValidChars from '../validationModule/notInvalidChars';
-import vxCheck from '../validationModule/v-and-xCheck';
 import Generation from '../../modules/generationModule/whichGeneration';
+import Validate from '../validationModule/validation';
+import DayRange from '../validationModule/dayRange';
 
 class Gender{
     #nicNumber;
     #generation;
+    #validate = new Validate();
+    #dayRangeValidate = new DayRange();
 
     get genderToStr(){
         const generation = this.nicGeneration;
@@ -23,7 +25,10 @@ class Gender{
             return 'female';
         }else if(totalDays < 500){
             return 'male';
-        }else{
+        }else if(!this.#dayRangeValidate.isValidDayRangeFromEpoch(totalDays)){
+            return false;
+        }
+        else{
             return false;
         }
     }
@@ -74,28 +79,16 @@ class Gender{
         return parseInt(result);
     }
 
-    get isValidNIC(){
-
-        const LENGTHVALIDATION = lengthValidator(this.#nicNumber);
-        const CHARACTERVALIDATION = ValidChars(this.#nicNumber);
-        const VXVALIDATION = new vxCheck(this.#nicNumber).isValid();
-
-        if(LENGTHVALIDATION && CHARACTERVALIDATION && VXVALIDATION){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
+   
     set nicNumber(nicNumber){
         this.#nicNumber = nicNumber
-        if(!this.isValidNIC){return false;}
+        if(!this.#validate.isValidNIC(nicNumber)){return false;}
     }
 
     constructor(nicNumber ='undefined'){ 
         if(!(typeof(nicNumber) === 'undefined')){
             this.#nicNumber = nicNumber;
-            if(!this.isValidNIC){return false;}
+            if(!this.#validate.isValidNIC(nicNumber)){return false;}
         }
     }
 }

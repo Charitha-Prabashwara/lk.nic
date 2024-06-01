@@ -1,4 +1,4 @@
-# lknic
+# lknic &middot; ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg) ![npm version](https://img.shields.io/npm/v/react.svg?style=flat) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 LK.NIC (Srl Lanka National Identity Card). This is a front-end library. Reading the information encoded in Sri Lanka's national identity card number (date of birth, gender, citizenship, or foreignness) and identity card number verification can be easily done using this library.
 
@@ -11,7 +11,7 @@ Most of the services run as Web systems. Therefore, it is essential to verify th
 You can use "**lknic**" to easily verify your 'National ID' number, retrieve coded information, and perform calculations using ID numbers.
 _(in web forms - user frontend)_
 
-### Key features
+#### Key features
 
 * Validation.
 * Find the date of birth.
@@ -19,4 +19,10 @@ _(in web forms - user frontend)_
 * National identity-card Generation.
 
 
-_The above mentioned are the basic features and new features are expected to be introduced in the new versions.__
+_The above mentioned are the basic features and new features are expected to be introduced in the new versions._
+
+## Installation
+
+```console
+npm install lknic
+```

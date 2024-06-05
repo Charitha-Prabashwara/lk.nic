@@ -14,7 +14,7 @@ describe('Bugfix - Gender module - issue #2', () => {
             const nicNumber = dataSeparate[0];
             const gender = dataSeparate[8];
 
-            const response = new Gender(nicNumber).genderToStr;
+            const response = new Gender(nicNumber).genderToStr();
             expect(response).toBe(gender);
             expect(response).not.toBe(false);
         }
@@ -28,7 +28,7 @@ describe('Bugfix - Gender module - issue #2', () => {
             const nicNumber = dataSeparate[0];
             const gender = dataSeparate[8];
 
-            const response = new Gender(nicNumber).genderToStr;
+            const response = new Gender(nicNumber).genderToStr();
             expect(response).toBe(gender);
             expect(response).not.toBe(true);
         }

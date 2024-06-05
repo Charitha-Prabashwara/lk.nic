@@ -8,14 +8,21 @@ class Gender{
     #validate = new Validate();
     #dayRangeValidate = new DayRange();
 
-    get genderToStr(){
-        const generation = this.nicGeneration;
-        let totalDays;
+    genderToStr(nationalIdentityCardNumber){
+        let generation;
+        if(nationalIdentityCardNumber === undefined){generation = this.nicGeneration();}
+        else{generation = this.nicGeneration(nationalIdentityCardNumber);}
         
+        let totalDays;
         if(generation == '1'){
-            totalDays = this.#totalDaysOldGen;
+            
+            if(nationalIdentityCardNumber === undefined){totalDays = this.#totalDaysOldGen();}
+            else{totalDays = this.#totalDaysOldGen(nationalIdentityCardNumber)}
+
         }else if(generation == '2'){
-            totalDays = this.#totalDaysNewGen;
+            
+            if(nationalIdentityCardNumber === undefined){ totalDays = this.#totalDaysNewGen();}
+            else{ totalDays = this.#totalDaysNewGen(nationalIdentityCardNumber);}
         }else{
             return false;
         }
@@ -32,8 +39,11 @@ class Gender{
         }
     }
 
-    get genderToInt(){
-        const gender = this.genderToStr;
+    genderToInt(nationalIdentityCardNumber){
+        let gender;
+        if(nationalIdentityCardNumber === undefined){gender = this.genderToStr();}
+        else{gender = this.genderToStr(nationalIdentityCardNumber);}
+        
         if(gender == 'female'){
             return 2;
         }else if(gender == 'male'){
@@ -43,16 +53,22 @@ class Gender{
         }
     }
 
-    get isMale(){
-        const gender = this.genderToStr;
+    isMale(nationalIdentityCardNumber){
+        let gender;
+        if(nationalIdentityCardNumber === undefined){gender = this.genderToStr();}
+        else{gender = this.genderToStr(nationalIdentityCardNumber);}
+
         if(gender == 'male'){
             return true;
         }else{
             return false;
         }
     }
-    get isFemale(){
-        const gender = this.genderToStr;
+    isFemale(nationalIdentityCardNumber){
+        let gender;
+        if(nationalIdentityCardNumber === undefined){gender = this.genderToStr();}
+        else{gender = this.genderToStr(nationalIdentityCardNumber);}
+
         if(gender == 'female'){
             return true;
         }else{
@@ -60,28 +76,36 @@ class Gender{
         }
     }
 
-    get nicGeneration(){
-        const GENERATION = new Generation().witchGeneration(this.#nicNumber);
+    nicGeneration(nationalIdentityCardNumber){
+
+        let GENERATION = new Generation();
+        if(nationalIdentityCardNumber === undefined){GENERATION = GENERATION.witchGeneration(this.#nicNumber);}
+        else{GENERATION = GENERATION.witchGeneration(nationalIdentityCardNumber);}
+        
         if(!GENERATION){return false;}
 
         this.#generation = GENERATION;
         return GENERATION;
     }
 
-    get #totalDaysOldGen(){
-        const result = this.#nicNumber.slice(2, 5);
+    #totalDaysOldGen(nationalIdentityCardNumber){
+        let result;
+        if(nationalIdentityCardNumber === undefined){result = this.#nicNumber.slice(2, 5);}
+        else{result = nationalIdentityCardNumber.slice(2, 5);}
         return parseInt(result);
     }
 
-    get #totalDaysNewGen(){
-        const result = this.#nicNumber.slice(4, 7);
+    #totalDaysNewGen(nationalIdentityCardNumber){
+        let result;
+        if(nationalIdentityCardNumber === undefined){result = this.#nicNumber.slice(4, 7);}
+        else{result = nationalIdentityCardNumber.slice(4, 7);}
         return parseInt(result);
     }
 
    
-    set nicNumber(nicNumber){
-        this.#nicNumber = nicNumber
-        if(!this.#validate.isValidNIC(nicNumber)){return false;}
+    set nicNumber(nationalIdentityCardNumber){
+        this.#nicNumber = nationalIdentityCardNumber
+        if(!this.#validate.isValidNIC(nationalIdentityCardNumber)){return false;}
     }
 
     constructor(nicNumber ='undefined'){ 

@@ -23,7 +23,6 @@ describe("Test check vV,xX characters in the nic.", ()=>{
            
             const dataSeparate = real_nic[i].split(':');
             const nicNumber = dataSeparate[0];
-            const inputResult = dataSeparate[1];
             const generation = dataSeparate[2];
 
             

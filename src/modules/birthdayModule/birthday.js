@@ -4,16 +4,19 @@ import Validate from '../validationModule/validation.js';
 
 class BirthDay{
     #date;
-    #nicNumber;
+    #nationalIdentityCardNumber;
     #generation;
     #validator= new Validate();
-    set setIdentityNumber(nicNumber){
-        this.#nicNumber = nicNumber;
-        return this.#validator.isValidNIC(nicNumber);
+
+    set setIdentityNumber(nationalIdentityCardNumber){
+        this.#nationalIdentityCardNumber = nationalIdentityCardNumber;
+        return this.#validator.isValidNIC(nationalIdentityCardNumber);
     }
 
-    get nicGeneration(){
-        const GENERATION = new Generation().witchGeneration(this.#nicNumber);
+    nicGeneration(nationalIdentityCardNumber){
+        let GENERATION = new Generation();
+        if(nationalIdentityCardNumber === undefined){GENERATION = GENERATION.witchGeneration(this.#nationalIdentityCardNumber);}
+        else{GENERATION = GENERATION.witchGeneration(nationalIdentityCardNumber)}
         if(!GENERATION){return false;}
 
         this.#generation = GENERATION;
@@ -21,22 +24,22 @@ class BirthDay{
     }
 
     get #birthYearOldGen(){
-        const result = "19" + this.#nicNumber.slice(0,2);
+        const result = "19" + this.#nationalIdentityCardNumber.slice(0,2);
         return parseInt(result,10);
     }
 
     get #birthYearNewGen(){
-        const result = this.#nicNumber.slice(0,4);
+        const result = this.#nationalIdentityCardNumber.slice(0,4);
         return parseInt(result,10);
     }
 
     get #totalDaysOldGen(){
-        const result = this.#nicNumber.slice(2, 5);
+        const result = this.#nationalIdentityCardNumber.slice(2, 5);
         return parseInt(result);
     }
 
     get #totalDaysNewGen(){
-        const result = this.#nicNumber.slice(4, 7);
+        const result = this.#nationalIdentityCardNumber.slice(4, 7);
         return parseInt(result);
     }
 
@@ -44,7 +47,7 @@ class BirthDay{
         
         let YEAR;
 
-        const GENERATIONRESULT = this.nicGeneration;
+        const GENERATIONRESULT = this.nicGeneration();
         if(!GENERATIONRESULT){return false;}
         
         if(GENERATIONRESULT == "1"){
@@ -60,7 +63,7 @@ class BirthDay{
 
         let DAYS;
 
-        const GENERATIONRESULT = this.nicGeneration;
+        const GENERATIONRESULT = this.nicGeneration();
         if(!GENERATIONRESULT){return false;}
 
         if(GENERATIONRESULT == "1"){
@@ -133,10 +136,12 @@ class BirthDay{
 
     
 
-    constructor(nicNumber ='undefined'){ 
-        if(!(typeof(nicNumber) === 'undefined')){
-            this.#nicNumber = nicNumber;
-            if(!this.#validator.isValidNIC(nicNumber)){return false;}
+    constructor(nationalIdentityCardNumber ='undefined'){ 
+
+        if(!(typeof(nationalIdentityCardNumber) === 'undefined')){
+            this.#nationalIdentityCardNumber = nationalIdentityCardNumber;
+            if(!this.#validator.isValidNIC(nationalIdentityCardNumber)){return false;}
+            return true;
         }
     }
 

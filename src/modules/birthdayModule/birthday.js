@@ -106,6 +106,7 @@ class BirthDay{
         
         if(parseInt(YEAR) % 4 == 0){
             DAYS = this.days-0;
+            
         }else{
             DAYS = this.days-1;
         }
@@ -123,6 +124,7 @@ class BirthDay{
         
         if(parseInt(YEAR) % 4 == 0){
             DAYS = this.days-0;
+
         }else{
             DAYS = this.days-1;
         }

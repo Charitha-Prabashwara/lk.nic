@@ -105,9 +105,9 @@ class BirthDay{
         let DAYS;
         
         if(parseInt(YEAR) % 4 == 0){
-            DAYS = this.days-1;
+            DAYS = this.days-0;
         }else{
-            DAYS = this.days-2;
+            DAYS = this.days-1;
         }
 
         let DATE = new Date(YEAR);
@@ -122,9 +122,9 @@ class BirthDay{
         let DAYS;
         
         if(parseInt(YEAR) % 4 == 0){
-            DAYS = this.days-1;
+            DAYS = this.days-0;
         }else{
-            DAYS = this.days-2;
+            DAYS = this.days-1;
         }
 
         let DATE = new Date(YEAR);

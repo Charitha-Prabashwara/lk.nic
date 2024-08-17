@@ -1,10 +1,10 @@
 # lknic &middot; ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg) ![npm version](https://img.shields.io/npm/v/react.svg?style=flat) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
-LK.NIC (Srl Lanka National Identity Card). This is a front-end library. Reading the information encoded in Sri Lanka's national identity card number (date of birth, gender, citizenship, or foreignness) and identity card number verification can be easily done using this library.
+LK.NIC (Srl Lanka National Identity Card). Reading the information encoded in Sri Lanka's national identity card number (date of birth, gender, citizenship, or foreignness) and identity card number verification can be easily done using this library.
 
 ## Description
 
-No matter how much technology is developed in the world, there are hardly any libraries created for the creation of general applications in Sri Lanka. Therefore, software developers have to face many difficulties. To provide services to Sri Lankans living,  abroad and the internal needs of Sri Lanka, it is essential to verify their National Identity Card number and obtain the data encoded in that number when they enter their National Identity Card number in the software applications.
+No matter how much technology is developed in the world, there are hardly any libraries created for the creation of general applications in Sri Lanka. Therefore, software developers have to face many difficulties. To provide services to Sri Lankans living, abroad and the internal needs of Sri Lanka, it is essential to verify their National Identity Card number and obtain the data encoded in that number when they enter their National Identity Card number in the software applications.
 
 Most of the services run as Web systems. Therefore, it is essential to verify the data entered by the users. It is essential to detect errors made by users while entering data. To do this, it is very important to develop a library that suits the needs of Sri Lanka. It can increase the time and productivity of software developers.The creation of '**Libraries**' for national needs is a strength to encourage Developers and Students, to create new systems.
 
@@ -13,16 +13,17 @@ _(in web forms - user frontend)_
 
 #### Key features
 
-* Validation.
-* Find the date of birth.
-* Gender
-* National identity-card Generation.
-
+- Validation.
+- Find the date of birth.
+- Gender
+- National identity-card Generation.
 
 _The above mentioned are the basic features and new features are expected to be introduced in the new versions._
 
 ## Installation
+
 lknic is an **npm** package. The base language is JavaScript and we hope to introduce versions using _**Python**_, _**PHP**_, and _**Java**_ languages ​​in future versions.
+
 ```console
 npm install lknic
 ```

@@ -1,5 +1,6 @@
-import { Validate } from "lknic";
+import { Validate, BirthDay } from "lknic";
 
-const nic = '200013802842';
+const nic = '746060830v';
 const ee = new Validate().isValidNIC(nic)
-console.log(ee);
+const bb = new BirthDay(nic).birthYear
+console.log(bb);

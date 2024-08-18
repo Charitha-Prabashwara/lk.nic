@@ -17,11 +17,11 @@ class Gender{
     #dayRangeValidate = new DayRange();
 
     /**
-     * @method genderToInt
+     * @method genderToSt
      * @description Gender is treated as an string. female or male.
      * Returns false if validation tests fail.
      * @param {string} nationalIdentityCardNumber 
-     * @returns {1 | 2 | false}
+     * @returns {female | male | false}
      * @example
      * let gender = Gender(your national-identity-card number");
      * if(gender){

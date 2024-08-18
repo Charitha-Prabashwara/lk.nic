@@ -29,6 +29,13 @@ class Validate{
      * The National ID number should be given in string datatype.
      * @param {string} nicNumber 
      * @returns {boolean}
+     * @example
+     * let nic= Validate().isValidNIC("your national-identity-card number");
+     * if(nic){
+     *      console.log("valid");
+     * }else{
+     *      console.log("invalid");
+     * }
      * @date 2024/06/03
      */
     isValidNIC(nicNumber){
@@ -47,6 +54,13 @@ class Validate{
      * The National ID number should be given in string datatype.
      * @param {string} nicNumber 
      * @returns {boolean}
+     * @example
+     * let nic= Validate().isInvalidNIC("your national-identity-card number");
+     * if(nic){
+     *      console.log("Invalid");
+     * }else{
+     *      console.log("valid");
+     * }
      * @date 2024/06/03
      */
     isInvalidNIC(nicNumber){
@@ -58,6 +72,9 @@ class Validate{
      * @description Performs all validation checks and outputs how many validation checks have failed.
      * @param {string} nicNumber 
      * @returns {int}
+     * @example
+     * let count= Validate().invalidsCount("your national-identity-card number");
+     * console.log(count)
      * @date 2024/06/03
      */
     invalidsCount(nicNumber){
@@ -78,6 +95,13 @@ class Validate{
      * Returns true if the length is valid, false if the length is invalid.
      * @param {string} nicNumber 
      * @returns {boolean}
+     * @example
+     * let nic= Validate().isValidLength("your national-identity-card number");
+     * if(nic){
+     *      console.log("valid length");
+     * }else{
+     *      console.log("invalid length");
+     * }
      * @date 2024/06/03
      */
     isValidLength(nicNumber){
@@ -91,12 +115,20 @@ class Validate{
      * Returns true if the characters in the ID number are valid, returns false if they are invalid.
      * @param {string} nicNumber 
      * @returns {boolean}
+     * @example
+     * let nic= Validate().isValidCharacters("your national-identity-card number");
+     * if(nic){
+     *      console.log("valid");
+     * }else{
+     *      console.log("invalid");
+     * }
      * @date 2024/06/03
      */
     isValidCharacters(nicNumber){
         this.isValidNIC(nicNumber);
         return this.#isValidChars;
     }
+    
     /**
      * @method isValidVXInOldGenAndNotInNewGen
      * @description First-generation ID numbers include the "V" or "X" character,
@@ -106,18 +138,33 @@ class Validate{
      * it will return true.
      * @param {string} nicNumber 
      * @returns {boolean}
+     * @example
+     * let nic= Validate().isValidVXInOldGenAndNotInNewGen("your national-identity-card number");
+     * if(nic){
+     *      console.log("valid");
+     * }else{
+     *      console.log("invalid");
+     * }
      * @date 2024/06/03
      */
     isValidVXInOldGenAndNotInNewGen(nic){
         this.isValidNIC(nicNumber);
         return this.#isVXValid;
     }
+    
     /**
      * @method isValidVXInOldGenAndNotInNewGen
      * @description Returns false if the encoded date of birth is incorrect,
      * returns true if the date of birth is correct.
      * @param {string} nicNumber 
      * @returns {boolean}
+     * @example
+     * let nic= Validate().isValidDayRange("your national-identity-card number");
+     * if(nic){
+     *      console.log("valid");
+     * }else{
+     *      console.log("invalid");
+     * }
      * @date 2024/06/03
      */
     isValidDayRange(nicNumber){

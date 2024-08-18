@@ -1,16 +1,19 @@
 
 import Generation from '../../modules/generationModule/whichGeneration.js';
 import Validate from '../validationModule/validation.js';
+import exception from './exceptions/exception.js';
 
-class BirthDay{
+class BirthDay extends exception{
     #date;
     #nationalIdentityCardNumber;
     #generation;
     #validator= new Validate();
 
     set setIdentityNumber(nationalIdentityCardNumber){
-        this.#nationalIdentityCardNumber = nationalIdentityCardNumber;
-        return this.#validator.isValidNIC(nationalIdentityCardNumber);
+
+        if(!this.#validator.isValidNIC(nationalIdentityCardNumber)){
+            this.invalidNic();
+        }else{this.#nationalIdentityCardNumber = nationalIdentityCardNumber;}
     }
 
     nicGeneration(nationalIdentityCardNumber){
@@ -138,13 +141,20 @@ class BirthDay{
 
     
 
-    constructor(nationalIdentityCardNumber ='undefined'){ 
+    constructor(nationalIdentityCardNumber, exceptionSwitch = true){ 
+        super();
 
         if(!(typeof(nationalIdentityCardNumber) === 'undefined')){
-            this.#nationalIdentityCardNumber = nationalIdentityCardNumber;
-            if(!this.#validator.isValidNIC(nationalIdentityCardNumber)){return false;}
-            return true;
+            if(!this.#validator.isValidNIC(nationalIdentityCardNumber)){this._exceptionInvalidNic()}
+            else{this.#nationalIdentityCardNumber = nationalIdentityCardNumber;}   
         }
+
+        if(!(typeof(exceptionSwitch) === 'boolean')){
+            this._exceptionSwitchTypeError();
+        }else{
+            this._exceptionSwitch = exceptionSwitch;
+        }
+        
     }
 
 

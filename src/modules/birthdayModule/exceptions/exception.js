@@ -1,0 +1,33 @@
+class exception{
+    #msgInvalidNic = "The ID number is not valid. The birthday module cannot be used without passing the validation test.";
+    #msgExceptionSwitch = "The parameter datatype does not match. A datatype of boolean is expected."
+    
+    _exceptionSwitch;
+    
+    
+    _exceptionInvalidNic(msg){
+       
+        if(_exceptionSwitch){
+            
+            if(typeof(msg) === 'undefined'){throw new Error(this.#msgInvalidNic);}
+            if(typeof(msg) === 'string'){throw new Error(msg);}
+            if(!(typeof(msg) === 'undefined' | typeof(msg) === 'string')){
+                throw new TypeError("The parameter datatype does not match. A datatype of string or undefined is expected.");
+            }
+        }
+    }
+    
+    _exceptionSwitchTypeError(msg){
+
+        if(_exceptionSwitch){
+
+            if(typeof(msg) === 'undefined'){throw new Error(this.#msgExceptionSwitch);}
+            if(typeof(msg) === 'string'){throw new Error(msg);}
+            if(!(typeof(msg) === 'undefined' | typeof(msg) === 'string')){
+                throw new TypeError("The parameter datatype does not match. A datatype of string or undefined is expected.");
+            }
+        }  
+    }
+}
+
+export default exception;

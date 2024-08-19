@@ -144,16 +144,18 @@ class BirthDay extends exception{
     constructor(nationalIdentityCardNumber, exceptionSwitch = true){ 
         super();
 
-        if(!(typeof(nationalIdentityCardNumber) === 'undefined')){
-            if(!this.#validator.isValidNIC(nationalIdentityCardNumber)){this._exceptionInvalidNic()}
-            else{this.#nationalIdentityCardNumber = nationalIdentityCardNumber;}   
-        }
-
         if(!(typeof(exceptionSwitch) === 'boolean')){
             this._exceptionSwitchTypeError();
         }else{
             this._exceptionSwitch = exceptionSwitch;
         }
+        
+        if(!(typeof(nationalIdentityCardNumber) === 'undefined')){
+            if(!this.#validator.isValidNIC(nationalIdentityCardNumber)){this._exceptionInvalidNic()}
+            else{this.#nationalIdentityCardNumber = nationalIdentityCardNumber;}   
+        }
+
+        
         
     }
 

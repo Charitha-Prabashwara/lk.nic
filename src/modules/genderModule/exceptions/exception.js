@@ -4,7 +4,6 @@ class exception{
     
     _exceptionSwitch;
     
-    
     _exceptionInvalidNic(msg){
        
         if(this._exceptionSwitch){

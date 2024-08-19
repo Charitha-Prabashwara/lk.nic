@@ -1,7 +1,7 @@
 import Generation from '../../modules/generationModule/whichGeneration.js';
 import Validate from '../validationModule/validation.js';
 import DayRange from '../validationModule/dayRange.js';
-
+import exception from './exceptions/exception.js';
 /**
  * @module Gender
  * @description Gender can be found using "Gender".
@@ -10,7 +10,7 @@ import DayRange from '../validationModule/dayRange.js';
  * @email prabhashwara.seu@gmail.com
  * @date 2024/06/05
  */
-class Gender{
+class Gender extends exception{
     #nicNumber;
     #generation;
     #validate = new Validate();
@@ -95,7 +95,7 @@ class Gender{
      * @param {string} nationalIdentityCardNumber
      * @returns {boolean}
      * @example
-     * let gender = Gender(your national-identity-card number");
+     * let gender = Gender("your national-identity-card number");
      * if(gender){
      *      console.log(gender.isMale());  
      * }else{
@@ -252,11 +252,17 @@ class Gender{
      * 
      * @date 2024/06/05
      */
-    constructor(nationalIdentityCardNumber ='undefined'){ 
+    constructor(nationalIdentityCardNumber, exceptionSwitch=true){ 
+        super();
+        if(!(typeof(exceptionSwitch) === 'boolean'))
+            {this._exceptionSwitchTypeError();}
+        else{this._exceptionSwitch = exceptionSwitch;}
+        
         if(!(typeof(nationalIdentityCardNumber) === 'undefined')){
             this.#nicNumber = nationalIdentityCardNumber;
-            if(!this.#validate.isValidNIC(nationalIdentityCardNumber)){return false;}
-            else{return false}
+
+        if(!this.#validate.isValidNIC(nationalIdentityCardNumber)){this._exceptionInvalidNic()} 
+
         }
     }
 }

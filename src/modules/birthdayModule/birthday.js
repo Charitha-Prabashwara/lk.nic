@@ -4,7 +4,7 @@ import Validate from '../validationModule/validation.js';
 import exception from './exceptions/exception.js';
 
 class BirthDay extends exception{
-    #date;
+    
     #nationalIdentityCardNumber;
     #generation;
    
@@ -149,8 +149,6 @@ class BirthDay extends exception{
     
     }
 
-    
-
     constructor(nationalIdentityCardNumber, exceptionSwitch = true){ 
         super();
 
@@ -163,10 +161,7 @@ class BirthDay extends exception{
         if(!(typeof(nationalIdentityCardNumber) === 'undefined')){
             if(!new Validate().isValidNIC(nationalIdentityCardNumber)){this._exceptionInvalidNic()}//exception
             else{this.#nationalIdentityCardNumber = nationalIdentityCardNumber;}   
-        }
-
-        
-        
+        }       
     }
 
 

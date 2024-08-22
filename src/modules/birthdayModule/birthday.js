@@ -7,23 +7,35 @@ class BirthDay extends exception{
     #date;
     #nationalIdentityCardNumber;
     #generation;
-    #validator= new Validate();
-
+   
+    
     set setIdentityNumber(nationalIdentityCardNumber){
-
-        if(!this.#validator.isValidNIC(nationalIdentityCardNumber)){
-            this.invalidNic();
-        }else{this.#nationalIdentityCardNumber = nationalIdentityCardNumber;}
+        //write unit-test -not yet 
+        if(!new Validate().isValidNIC(nationalIdentityCardNumber)){
+            this._exceptionInvalidNic();//exception
+        }else{
+            this.#nationalIdentityCardNumber = nationalIdentityCardNumber;
+        }
     }
 
     nicGeneration(nationalIdentityCardNumber){
-        let GENERATION = new Generation();
-        if(nationalIdentityCardNumber === undefined){GENERATION = GENERATION.witchGeneration(this.#nationalIdentityCardNumber);}
-        else{GENERATION = GENERATION.witchGeneration(nationalIdentityCardNumber)}
-        if(!GENERATION){return false;}
-
-        this.#generation = GENERATION;
-        return GENERATION;
+        const generation = new Generation();
+        let generationResult;
+        
+        if(typeof(nationalIdentityCardNumber) == 'undefined'){
+            generationResult = generation.witchGeneration(this.#nationalIdentityCardNumber);
+        }
+        else{
+            
+            if(!typeof(nationalIdentityCardNumber) == 'string'){
+                this._exceptionNicParameterTypeError();//exception
+            }else{
+                generationResult = generation.witchGeneration(nationalIdentityCardNumber)
+            }
+        }
+       
+        this.#generation = generationResult;
+        return generationResult;
     }
 
     get #birthYearOldGen(){
@@ -48,49 +60,47 @@ class BirthDay extends exception{
 
     get birthYear(){
         
-        let YEAR;
-
-        const GENERATIONRESULT = this.nicGeneration();
-        if(!GENERATIONRESULT){return false;}
+        let year;
+        const generationResult = this.nicGeneration();
         
-        if(GENERATIONRESULT == "1"){
-            YEAR = this.#birthYearOldGen;
-        }else if(GENERATIONRESULT == "2"){
-            YEAR = this.#birthYearNewGen;
-        }else{return false;}
+        if(generationResult == "1"){
+            year = this.#birthYearOldGen;
+        }else if(generationResult == "2"){
+            year = this.#birthYearNewGen;
+        }else{
+            this._exceptionBirthYearDayUnexpectedResult();//exception
+        }
 
-        return YEAR;
+        return year;
     }
 
     get days(){
 
-        let DAYS;
+        let days;
 
-        const GENERATIONRESULT = this.nicGeneration();
-        if(!GENERATIONRESULT){return false;}
+        const generationResult = this.nicGeneration();
+        
+        if(generationResult == "1"){ days = this.#totalDaysOldGen;}
+        else if(generationResult == "2"){days = this.#totalDaysNewGen;}
+        else{this._exceptionBirthYearDayUnexpectedResult();}//exception
 
-        if(GENERATIONRESULT == "1"){
-            DAYS = this.#totalDaysOldGen;
-        }else if(GENERATIONRESULT == "2"){
-            DAYS = this.#totalDaysNewGen;
-        }else{return false;}
-        if(DAYS > 500){DAYS -= 500;}
-        return DAYS;
+        if(days > 500){days -= 500;}
+        return days;
     }
 
     get month(){
-        const YEAR = this.birthYear.toString();
-        let DAYS;
+        const year = this.birthYear.toString();
+        let days;
         
-        if(parseInt(YEAR) % 4 == 0){
-            DAYS = this.days-1;
+        if(parseInt(year) % 4 == 0){
+            days = this.days-1;
         }else{
-            DAYS = this.days-2;
+            days = this.days-2;
         }
 
-        let DATE = new Date(YEAR);
-        DATE.setDate(DATE.getDate() + DAYS);
-        let result = parseInt(DATE.getMonth()+1);
+        let date = new Date(year);
+        date.setDate(date.getDate() + days);
+        let result = parseInt(date.getMonth()+1);
         return result;
     
     }
@@ -104,37 +114,37 @@ class BirthDay extends exception{
         return monthNames[this.month];
     }
     get day(){
-        const YEAR = this.birthYear.toString();
-        let DAYS;
+        const year = this.birthYear.toString();
+        let days;
         
-        if(parseInt(YEAR) % 4 == 0){
-            DAYS = this.days-1;
+        if(parseInt(year) % 4 == 0){
+            days = this.days-1;
             
         }else{
-            DAYS = this.days-2;
+            days = this.days-2;
         }
 
-        let DATE = new Date(YEAR);
-        DATE.setDate(DATE.getDate() + DAYS);
-        let result = parseInt(DATE.getDate());
+        let date = new Date(year);
+        date.setDate(date.getDate() + days);
+        let result = parseInt(date.getDate());
         return result;
     }
 
     get dayName(){
         const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        const YEAR = this.birthYear.toString();
-        let DAYS;
+        const year = this.birthYear.toString();
+        let days;
         
-        if(parseInt(YEAR) % 4 == 0){
-            DAYS = this.days-1;
+        if(parseInt(year) % 4 == 0){
+            days = this.days-1;
 
         }else{
-            DAYS = this.days-2;
+            days = this.days-2;
         }
 
-        let DATE = new Date(YEAR);
-        DATE.setDate(DATE.getDate() + DAYS);
-        let result = weekDays[parseInt(DATE.getDay())];
+        let date = new Date(year);
+        date.setDate(date.getDate() + days);
+        let result = weekDays[parseInt(date.getDay())];
         return result;
     
     }
@@ -145,13 +155,13 @@ class BirthDay extends exception{
         super();
 
         if(!(typeof(exceptionSwitch) === 'boolean')){
-            this._exceptionSwitchTypeError();
+            this._exceptionSwitchTypeError();//exception
         }else{
             this._exceptionSwitch = exceptionSwitch;
         }
         
         if(!(typeof(nationalIdentityCardNumber) === 'undefined')){
-            if(!this.#validator.isValidNIC(nationalIdentityCardNumber)){this._exceptionInvalidNic()}
+            if(!new Validate().isValidNIC(nationalIdentityCardNumber)){this._exceptionInvalidNic()}//exception
             else{this.#nationalIdentityCardNumber = nationalIdentityCardNumber;}   
         }
 

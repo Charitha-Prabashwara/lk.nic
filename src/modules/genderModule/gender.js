@@ -254,15 +254,13 @@ class Gender extends exception{
      */
     constructor(nationalIdentityCardNumber, exceptionSwitch=true){ 
         super();
-        if(!(typeof(exceptionSwitch) === 'boolean'))
-            {this._exceptionSwitchTypeError();}
+        
+        if(!(typeof(exceptionSwitch) === 'boolean')){this._exceptionSwitchTypeError();}
         else{this._exceptionSwitch = exceptionSwitch;}
         
         if(!(typeof(nationalIdentityCardNumber) === 'undefined')){
-            this.#nicNumber = nationalIdentityCardNumber;
-
-        if(!this.#validate.isValidNIC(nationalIdentityCardNumber)){this._exceptionInvalidNic()} 
-
+            if(!this.#validate.isValidNIC(nationalIdentityCardNumber)){this._exceptionInvalidNic()}
+            else{this.#nicNumber = nationalIdentityCardNumber;}
         }
     }
 }

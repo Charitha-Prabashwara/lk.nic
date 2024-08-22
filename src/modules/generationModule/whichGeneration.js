@@ -2,6 +2,7 @@ import vxCheck from '../validationModule/v-and-xCheck.js';
 import lengthValidator from '../validationModule/lengthValidator.js';
 import ValidChars from '../validationModule/notInvalidChars.js';
 
+
 /**
  * @module Generation
  * @description Using "Generation", what is the generation of the Sri Lanka National ID number?
@@ -82,6 +83,7 @@ class Generation{
      * @date 2024/06/03
      */
     witchGeneration(nationalIdentityCardNumber){
+        
         const gfc =  this.#determiningTheGenerationFromChar(nationalIdentityCardNumber);
         const gfcl = this.#determiningTheGenerationFromLength(nationalIdentityCardNumber);
         

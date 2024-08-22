@@ -2,6 +2,7 @@ import lengthValidator from './lengthValidator.js';
 import ValidChars from './notInvalidChars.js';
 import vxCheck from './v-and-xCheck.js';
 import DayRange from './dayRange.js';
+import exception from './exceptions/exception.js'
 
 /**
  * @module Validate
@@ -15,7 +16,7 @@ import DayRange from './dayRange.js';
  * @email prabhashwara.seu@gmail.com
  * @date 2024/06/03
  */
-class Validate{
+class Validate extends exception{
 
     #isValidLength;
     #isValidChars;
@@ -39,6 +40,11 @@ class Validate{
      * @date 2024/06/03
      */
     isValidNIC(nicNumber){
+        
+        if(typeof(nicNumber) === 'undefined'){
+            this._exceptionMethodParamUndefined();
+        }
+
         this.#isValidLength = lengthValidator(nicNumber);
         this.#isValidChars  = ValidChars(nicNumber);
         this.#isVXValid     = new vxCheck(nicNumber).isValid();
@@ -170,6 +176,11 @@ class Validate{
     isValidDayRange(nicNumber){
         this.isValidNIC(nicNumber);
         return this.#isValidDayRange;
+    }
+
+    constructor(exceptionSwitch=true){
+        super();
+        this._exceptionSwitch = exceptionSwitch;
     }
 }
 

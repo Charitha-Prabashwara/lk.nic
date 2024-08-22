@@ -1,7 +1,7 @@
 class exception{
     #msgInvalidNic = "The ID number is not valid. The birthday module cannot be used without passing the validation test.";
     #msgExceptionSwitch = "The parameter datatype does not match. A datatype of boolean is expected."
-    #msgNicParameterTypeError = "";
+   
     _exceptionSwitch;
     
     _exceptionInvalidNic(msg){

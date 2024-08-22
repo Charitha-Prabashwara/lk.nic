@@ -3,6 +3,7 @@ import Validate from "../validationModule/validation.js"
 import exception from './exceptions/exception.js';
 
 
+
 /**
  * @module Generation
  * @description Using "Generation", what is the generation of the Sri Lanka National ID number?

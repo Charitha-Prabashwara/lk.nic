@@ -23,6 +23,17 @@ class Validate extends exception{
     #isVXValid;
     #isValidDayRange;
 
+    #exceptionTest(nicNumber){
+        if(typeof(nicNumber) === 'undefined'){
+            this._exceptionMethodParamUndefined();
+        }else{
+            if(!(typeof(nicNumber) === 'string')){
+                this._exceptionNicParameterTypeError();
+            }
+        }
+
+    }
+
     /**
      * @method isInvalidNIC
      * @description Returns true if all validation tests are done,
@@ -41,9 +52,9 @@ class Validate extends exception{
      */
     isValidNIC(nicNumber){
         
-        if(typeof(nicNumber) === 'undefined'){
-            this._exceptionMethodParamUndefined();
-        }
+        this.#exceptionTest(nicNumber);
+
+       
 
         this.#isValidLength = lengthValidator(nicNumber);
         this.#isValidChars  = ValidChars(nicNumber);
@@ -70,6 +81,7 @@ class Validate extends exception{
      * @date 2024/06/03
      */
     isInvalidNIC(nicNumber){
+        this.#exceptionTest(nicNumber);
         return (!this.isValidNIC(nicNumber));
     }
 
@@ -84,6 +96,8 @@ class Validate extends exception{
      * @date 2024/06/03
      */
     invalidsCount(nicNumber){
+        this.#exceptionTest(nicNumber);
+
         this.isValidNIC(nicNumber);
         let count = 0;
 
@@ -111,6 +125,8 @@ class Validate extends exception{
      * @date 2024/06/03
      */
     isValidLength(nicNumber){
+
+        this.#exceptionTest(nicNumber);
         this.isValidNIC(nicNumber);
         return this.#isValidLength;
     }
@@ -131,6 +147,7 @@ class Validate extends exception{
      * @date 2024/06/03
      */
     isValidCharacters(nicNumber){
+        this.#exceptionTest(nicNumber);
         this.isValidNIC(nicNumber);
         return this.#isValidChars;
     }
@@ -154,6 +171,7 @@ class Validate extends exception{
      * @date 2024/06/03
      */
     isValidVXInOldGenAndNotInNewGen(nic){
+        this.#exceptionTest(nicNumber);
         this.isValidNIC(nicNumber);
         return this.#isVXValid;
     }
@@ -174,6 +192,7 @@ class Validate extends exception{
      * @date 2024/06/03
      */
     isValidDayRange(nicNumber){
+        this.#exceptionTest(nicNumber);
         this.isValidNIC(nicNumber);
         return this.#isValidDayRange;
     }

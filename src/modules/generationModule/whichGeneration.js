@@ -63,7 +63,7 @@ class Generation extends exception{
      */
     witchGeneration(nationalIdentityCardNumber){
         
-        if(!new Validate().isValidNIC(nationalIdentityCardNumber)){
+        if(!(new Validate().isValidNIC(nationalIdentityCardNumber))){
             this._exceptionInvalidNic();
         }
 
@@ -78,7 +78,8 @@ class Generation extends exception{
         }
     }
 
-    Generation(exceptionSwitch=true){
+    constructor(exceptionSwitch=true){
+        super();
         if(!(typeof(exceptionSwitch) === 'boolean')){this._exceptionSwitchTypeError();}
         else{this._exceptionSwitch = exceptionSwitch;}
     }

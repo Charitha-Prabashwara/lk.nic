@@ -1,5 +1,6 @@
 class exception{
     #msgMethodParamUndefined = "datatype undefined parameter. You can only use string data type."
+    #msgNicParameterTypeError="National ID number must be 'string' data type.";
     _exceptionSwitch;
 
     _exceptionMethodParamUndefined(msg){
@@ -12,6 +13,17 @@ class exception{
                 throw new TypeError("The parameter datatype does not match. A datatype of string or undefined is expected.");
             }
         }
+    }
+
+    _exceptionNicParameterTypeError(msg){
+        if(this._exceptionSwitch){
+
+            if(typeof(msg) === 'undefined'){throw new TypeError(this.#msgNicParameterTypeError);}
+            if(typeof(msg) === 'string'){throw new Error(msg);}
+            if(!(typeof(msg) === 'undefined' | typeof(msg) === 'string')){
+                throw new TypeError("The parameter datatype does not match. A datatype of string or undefined is expected.");
+            }
+        }  
     }
 }
 export default exception;

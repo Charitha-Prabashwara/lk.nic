@@ -1,10 +1,8 @@
 class exception{
     #msgInvalidNic = "The ID number is not valid. The birthday module cannot be used without passing the validation test.";
     #msgExceptionSwitch = "The parameter datatype does not match. A datatype of boolean is expected."
-    #msgNicParameterTypeError="National ID number must be 'string' data type.";
-    #msgBirthYearDayUnexpectedResult= "Unexpected result. method or function response is not valid. Please re-check your code.";
+    #msgNicParameterTypeError = "";
     _exceptionSwitch;
-    
     
     _exceptionInvalidNic(msg){
        
@@ -30,28 +28,7 @@ class exception{
         }  
     }
 
-    _exceptionNicParameterTypeError(msg){
-        if(this._exceptionSwitch){
 
-            if(typeof(msg) === 'undefined'){throw new TypeError(this.#msgNicParameterTypeError);}
-            if(typeof(msg) === 'string'){throw new Error(msg);}
-            if(!(typeof(msg) === 'undefined' | typeof(msg) === 'string')){
-                throw new TypeError("The parameter datatype does not match. A datatype of string or undefined is expected.");
-            }
-        }  
-    }
-
-    _exceptionBirthYearDayUnexpectedResult(msg){
-        
-        if(this._exceptionSwitch){
-
-            if(typeof(msg) === 'undefined'){throw new TypeError(this.#msgBirthYearDayUnexpectedResult);}
-            if(typeof(msg) === 'string'){throw new Error(msg);}
-            if(!(typeof(msg) === 'undefined' | typeof(msg) === 'string')){
-                throw new TypeError("The parameter datatype does not match. A datatype of string or undefined is expected.");
-            }
-        }  
-    }
 }
 
 export default exception;

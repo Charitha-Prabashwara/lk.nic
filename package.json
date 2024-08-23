@@ -7,6 +7,7 @@
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "testSpecific": "jest -t --rumTestByPath ./dealRelatedFeatures/*",
+    "doc": "jsdoc -c jsdoc.json",
     "start": "node nic.js"
   },
   "repository": {
@@ -27,7 +28,9 @@
   },
   "homepage": "https://github.com/Charitha-Prabashwara/lk.nic#readme",
   "devDependencies": {
-    "jest": "^29.7.0",
+    "docdash": "^2.0.2",
+    "jest": "^25.0.0",
+    "jsdoc": "^4.0.3",
     "request": "^2.88.2"
   },
   "jest": {

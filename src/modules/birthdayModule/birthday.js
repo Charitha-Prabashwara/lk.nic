@@ -17,34 +17,25 @@ class BirthDay extends exception{
     #generation;
    
     
+    /**
+     * @method setIdentityNumber
+     * @description This can be used to add a new national ID number to the birthday object.
+     * It will be executed only if the validity test is passed and if an invalid ID number is entered,
+     * the corresponding exception will be executed. In case of a new entry,
+     * use 'exception handling techniques' or use the 'validation' module to enter with prior validation.
+     * @param {string} nationalIdentityCardNumber - National identity card number Sri Lanka
+     * @throws {Error} The ID number is not valid. The birthday module cannot be used without passing the validation test.
+     */
     set setIdentityNumber(nationalIdentityCardNumber){
         //write unit-test -not yet 
         if(!new Validate().isValidNIC(nationalIdentityCardNumber)){
+
             this._exceptionInvalidNic();//exception
         }else{
             this.#nationalIdentityCardNumber = nationalIdentityCardNumber;
         }
     }
-
-    nicGeneration(nationalIdentityCardNumber){
-        const generation = new Generation();
-        let generationResult;
-        
-        if(typeof(nationalIdentityCardNumber) == 'undefined'){
-            generationResult = generation.witchGeneration(this.#nationalIdentityCardNumber);
-        }
-        else{
-            
-            if(!typeof(nationalIdentityCardNumber) == 'string'){
-                this._exceptionNicParameterTypeError();//exception
-            }else{
-                generationResult = generation.witchGeneration(nationalIdentityCardNumber)
-            }
-        }
-       
-        this.#generation = generationResult;
-        return generationResult;
-    }
+    
 
     get #birthYearOldGen(){
         const result = "19" + this.#nationalIdentityCardNumber.slice(0,2);
@@ -69,7 +60,7 @@ class BirthDay extends exception{
     get birthYear(){
         
         let year;
-        const generationResult = this.nicGeneration();
+        const generationResult = new Generation().witchGeneration(this.#nationalIdentityCardNumber);
         
         if(generationResult == "1"){
             year = this.#birthYearOldGen;
@@ -86,7 +77,7 @@ class BirthDay extends exception{
 
         let days;
 
-        const generationResult = this.nicGeneration();
+        const generationResult = new Generation().witchGeneration(this.#nationalIdentityCardNumber);
         
         if(generationResult == "1"){ days = this.#totalDaysOldGen;}
         else if(generationResult == "2"){days = this.#totalDaysNewGen;}

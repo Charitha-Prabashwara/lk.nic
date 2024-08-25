@@ -57,6 +57,12 @@ class BirthDay extends exception{
         return parseInt(result);
     }
 
+    /**
+     * @method birthYear
+     * @description This can be used to get the ID card holder's year of birth.
+     * @throws {TypeError} Unexpected result. method or function response is not valid. Please re-check your code and data. - If an inconsistent result is output.
+     * @returns {int} Birth year of ID card holder.
+     */
     get birthYear(){
         
         let year;
@@ -73,6 +79,12 @@ class BirthDay extends exception{
         return year;
     }
 
+     /**
+     * @method days
+     * @description The date of birth of the ID card holder and the number of days from the first day of January in the year of his birth.
+     * @throws {TypeError} Unexpected result. method or function response is not valid. Please re-check your code and data. - If an inconsistent result is output.
+     * @returns {int} The total number of days between the birth year of the ID card holder and the date of birth on January 1.
+     */
     get days(){
 
         let days;
@@ -87,6 +99,11 @@ class BirthDay extends exception{
         return days;
     }
 
+     /**
+     * @method month
+     * @description Output the month of birth of the ID card holder.
+     * @returns {int} Birth month.
+     */
     get month(){
         const year = this.birthYear.toString();
         let days;
@@ -104,6 +121,11 @@ class BirthDay extends exception{
     
     }
 
+    /**
+     * @method monthName
+     * @description Output the month name of birth of the ID card holder.
+     * @returns {string} Birth month name.
+     */
     get monthName(){
         const monthNames = [
             "January", "February", "March", "April", "May", "June",
@@ -112,6 +134,12 @@ class BirthDay extends exception{
         
         return monthNames[this.month];
     }
+
+    /**
+     * @method day
+     * @description Output the day of birth of the ID card holder.
+     * @returns {int} Birth day.
+    */
     get day(){
         const year = this.birthYear.toString();
         let days;
@@ -129,6 +157,11 @@ class BirthDay extends exception{
         return result;
     }
 
+    /**
+     * @method dayName
+     * @description Name suitable for the day of birthday. eg:- Sunday, Monday
+     * @returns {string} Day name.
+    */
     get dayName(){
         const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const year = this.birthYear.toString();
@@ -147,7 +180,16 @@ class BirthDay extends exception{
         return result;
     
     }
-
+    
+    /**
+     * @constructor
+     * @description This is used to find birthdays. When creating an object using BirthDay(), the national identity card number must be entered. If this is not provided, an object can be created, and the national identity card number can be entered using "setIdentityNumber(nationalIdentityCardNumber)". Any national ID number applied must be pre-verified.
+     * Exceptions can be avoided if necessary. 
+     * @param {string} [nationalIdentityCardNumber] - National identity card number Sri Lanka (Optional)
+     * @param {boolean} [exceptionSwitch=true] - Designer-defined exceptions can be disabled.
+     * @throws {TypeError} The parameter datatype does not match. A datatype of boolean is expected.
+     * @throws {Error} The ID number is not valid. The birthday module cannot be used without passing the validation test.
+     */
     constructor(nationalIdentityCardNumber, exceptionSwitch = true){ 
         super();
 

@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Gender - Documentation</title>
+    <title>BirthDay - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,7 +35,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Gender</h1>
+    <h1 class="page-title">BirthDay</h1>
     
 
     
@@ -48,10 +48,10 @@
 <header>
     
         <h2>
-            <span class="ancestors"><a href="module-Gender.html">Gender</a>~</span>
+            <span class="ancestors"><a href="module-BirthDay.html">BirthDay</a>~</span>
         
         
-            Gender
+            BirthDay
         
         </h2>
         
@@ -66,7 +66,7 @@
 
     
 
-    <h4 class="name" id="Gender"><span class="type-signature"></span>new Gender<span class="signature">(nationalIdentityCardNumber<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {boolean|undefined}</span></h4>
+    <h4 class="name" id="BirthDay"><span class="type-signature"></span>new BirthDay<span class="signature">(nationalIdentityCardNumber<span class="signature-attributes">opt</span>, exceptionSwitch<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -76,16 +76,14 @@
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li><p>An object can be created by giving the National ID number or without any parameters.
-If the object is created by providing the National ID number,
-it is not mandatory to provide the ID number when using other methods.
-If the ID number is not provided, the ID number should be applied when using the methods.</p></li></ul></dd>
+    <dd class="tag-description"><ul class="dummy"><li><p>This is used to find birthdays. When creating an object using BirthDay(), the national identity card number must be entered. If this is not provided, an object can be created, and the national identity card number can be entered using &quot;setIdentityNumber(nationalIdentityCardNumber)&quot;. Any national ID number applied must be pre-verified.
+Exceptions can be avoided if necessary.</p></li></ul></dd>
     
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_genderModule_gender.js.html">modules/genderModule/gender.js</a>, <a href="modules_genderModule_gender.js.html#line256">line 256</a>
+        <a href="modules_birthdayModule_birthday.js.html">modules/birthdayModule/birthday.js</a>, <a href="modules_birthdayModule_birthday.js.html#line193">line 193</a>
     </li></ul></dd>
     
 
@@ -128,11 +126,6 @@ If the ID number is not provided, the ID number should be applied when using the
 
 
 
-
-
-    <h5 class="h5-examples">Example</h5>
-    
-    <pre class="prettyprint"><code>let gender = Gender("your national-identity-card number");if(!gender){     console.log("invalid national identity card number");}else{     console.log(gender.genderToStr());}//second examplelet gender = Gender();if(!gender.nicNumber("your national-identity-card number")){     console.log("invalid national identity card number");}else{     console.log(gender.genderToStr());}</code></pre>
 
 
 
@@ -194,12 +187,50 @@ If the ID number is not provided, the ID number should be applied when using the
             
                 <td class="default">
                 
-                    <code>'undefined'</code>
+                </td>
+            
+
+            <td class="description last"><p>National identity card number Sri Lanka (Optional)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>exceptionSwitch</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
                 
                 </td>
             
 
-            <td class="description last"></td>
+            
+                <td class="default">
+                
+                    <code>true</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Designer-defined exceptions can be disabled.</p></td>
         </tr>
 
     
@@ -219,30 +250,66 @@ If the ID number is not provided, the ID number should be applied when using the
 
 
 
+<h5 class="h5-throws">Throws:</h5>
+<ul>
+        <li>
 
-
-<h5 class="h5-returns">Returns:</h5>
-
-        
-
-
-<dl class="param-type">
+<dl>
     <dt>
-        Type
+        <div class="param-desc usertext">
+        <p>The parameter datatype does not match. A datatype of boolean is expected.</p>
+        </div>
     </dt>
-    <dd>
-        
-<span class="param-type">boolean</span>
-|
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">TypeError</span>
 
-<span class="param-type">undefined</span>
 
 
-
-    </dd>
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
 </dl>
 
+</li>
     
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>The ID number is not valid. The birthday module cannot be used without passing the validation test.</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    </ul>
+
+
 
 
 

@@ -76,7 +76,7 @@ class BirthDay extends exception{
     getBirthYear(){
         
         let year;
-        const generationResult = new Generation().witchGeneration(this.#nic);
+        const generationResult = new Generation().whichGeneration(this.#nic);
         
         if(generationResult == "1"){
             year = this.#birthYearOldGen;
@@ -99,7 +99,7 @@ class BirthDay extends exception{
 
         let days;
 
-        const generationResult = new Generation().witchGeneration(this.#nic);
+        const generationResult = new Generation().whichGeneration(this.#nic);
         
         if(generationResult == "1"){ days = this.#totalDaysOldGen;}
         else if(generationResult == "2"){days = this.#totalDaysNewGen;}

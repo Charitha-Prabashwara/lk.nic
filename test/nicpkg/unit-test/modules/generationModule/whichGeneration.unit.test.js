@@ -14,7 +14,7 @@ describe('Test identity number generation: id-001 , Module: Generation', () => {
             //const inputResult = dataSeparate[1];
             const generation = dataSeparate[2];
 
-            const response = new Generation().witchGeneration(nicNumber);
+            const response = new Generation().whichGeneration(nicNumber);
             expect(response).not.toBe(false);
         }
     });
@@ -28,7 +28,7 @@ describe('Test identity number generation: id-001 , Module: Generation', () => {
             //const inputResult = dataSeparate[1];
             const generation = dataSeparate[2];
 
-            const response = new Generation().witchGeneration(nicNumber);
+            const response = new Generation().whichGeneration(nicNumber);
             expect(response).toBe(generation);
         }
     });

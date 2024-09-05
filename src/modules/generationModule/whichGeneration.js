@@ -21,23 +21,25 @@ class Generation extends exception{
      * is eligible to vote or not can be used to identify the generation.
      * Generation 1 as 1 and Generation 2 as 2. Also returns "false" if the validation test fails.
      * @param {String} nationalIdentityCardNumber
-     * @returns {false | 1 | 2}
+     * @returns {1 | 2}
      * @date 2024/06/03
      */
     #determiningTheGenerationFromChar(nationalIdentityCardNumber){
-        
-        const isOldGen = new vxCheck(nationalIdentityCardNumber).isOldGeneration();
-        const isNewGen = new vxCheck(nationalIdentityCardNumber).isNewGeneration();     
+        const vxChecker = new vxCheck(nationalIdentityCardNumber);
+        const isOldGen = vxChecker.isOldGeneration();
+        const isNewGen = vxChecker.isNewGeneration();   
+
         if(isOldGen){return 1;}
         if(isNewGen){return 2;}    
     }
+    
     /**
      * @method determiningTheGenerationFromLength
      * @description The increase in the number of characters in the ID number from the first
      * generation to the second generation is used to identify the generation.
      * Generation 1 as 1 and Generation 2 as 2. Also returns "false" if the validation test fails.
      * @param {String} nationalIdentityCardNumber
-     * @returns {false | 1 | 2}
+     * @returns {1 | 2}
      * @date 2024/06/03
      */
     #determiningTheGenerationFromLength(nationalIdentityCardNumber){
@@ -59,10 +61,10 @@ class Generation extends exception{
      * of characters are both used to determine the generation of the National ID number.
      * Generation 1 as "1" and Generation 2 as "2". Also returns "false" if the validation test fails.
      * @param {String} nationalIdentityCardNumber
-     * @returns {false | "1" | "2"}
+     * @returns {"1" | "2"}
      * @date 2024/06/03
      */
-    witchGeneration(nationalIdentityCardNumber){
+    whichGeneration(nationalIdentityCardNumber){
         
         if(!(new Validate().isValidNIC(nationalIdentityCardNumber))){
             this._exceptionInvalidNic();

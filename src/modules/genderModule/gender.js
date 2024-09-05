@@ -164,8 +164,8 @@ class Gender extends exception{
     nicGeneration(nationalIdentityCardNumber){
 
         let GENERATION = new Generation();
-        if(nationalIdentityCardNumber === undefined){GENERATION = GENERATION.witchGeneration(this.#nicNumber);}
-        else{GENERATION = GENERATION.witchGeneration(nationalIdentityCardNumber);}
+        if(nationalIdentityCardNumber === undefined){GENERATION = GENERATION.whichGeneration(this.#nicNumber);}
+        else{GENERATION = GENERATION.whichGeneration(nationalIdentityCardNumber);}
         
         if(!GENERATION){return false;}
 

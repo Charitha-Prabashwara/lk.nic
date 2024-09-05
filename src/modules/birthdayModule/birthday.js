@@ -9,16 +9,21 @@ import exception from './exceptions/exception.js';
  * @description This is used to find the date, month, and birth year in a National ID number.
  * @author Charitha Prabhashwara
  * @email prabhashwara.seu@gmail.com
+ * 
+ * @param {string} identityNumber - This can be used to add a new national ID number to the birthday object.
+ * It will be executed only if the validity test is passed and if an invalid ID number is entered,
+ * the corresponding exception will be executed. In case of a new entry, 
+ * use 'exception handling techniques' or use the 'validation' module to enter with prior validation.
  * @date 2024/06/05
  */
 class BirthDay extends exception{
     
-    #nationalIdentityCardNumber;
+    #nic;
     #generation;
    
     
     /**
-     * @method setIdentityNumber
+     * identityNumber
      * @description This can be used to add a new national ID number to the birthday object.
      * It will be executed only if the validity test is passed and if an invalid ID number is entered,
      * the corresponding exception will be executed. In case of a new entry,
@@ -26,47 +31,52 @@ class BirthDay extends exception{
      * @param {string} nationalIdentityCardNumber - National identity card number Sri Lanka
      * @throws {Error} The ID number is not valid. The birthday module cannot be used without passing the validation test.
      */
-    set setIdentityNumber(nationalIdentityCardNumber){
+    set identityNumber(nationalIdentityCardNumber){
         //write unit-test -not yet 
         if(!new Validate().isValidNIC(nationalIdentityCardNumber)){
 
             this._exceptionInvalidNic();//exception
         }else{
-            this.#nationalIdentityCardNumber = nationalIdentityCardNumber;
+            this.#nic = nationalIdentityCardNumber;
         }
     }
     
+   
+    set #nicSetter(nic){
+        this.#nic = nic;
+    }
 
     get #birthYearOldGen(){
-        const result = "19" + this.#nationalIdentityCardNumber.slice(0,2);
+        const result = "19" + this.#nic.slice(0,2);
         return parseInt(result,10);
     }
 
     get #birthYearNewGen(){
-        const result = this.#nationalIdentityCardNumber.slice(0,4);
+        const result = this.#nic.slice(0,4);
         return parseInt(result,10);
     }
 
     get #totalDaysOldGen(){
-        const result = this.#nationalIdentityCardNumber.slice(2, 5);
+        const result = this.#nic.slice(2, 5);
         return parseInt(result);
     }
 
     get #totalDaysNewGen(){
-        const result = this.#nationalIdentityCardNumber.slice(4, 7);
+        const result = this.#nic.slice(4, 7);
         return parseInt(result);
     }
 
     /**
-     * @method birthYear
+     * @method getBirthYear
      * @description This can be used to get the ID card holder's year of birth.
      * @throws {TypeError} Unexpected result. method or function response is not valid. Please re-check your code and data. - If an inconsistent result is output.
      * @returns {int} Birth year of ID card holder.
+     * @readonly
      */
-    get birthYear(){
+    getBirthYear(){
         
         let year;
-        const generationResult = new Generation().witchGeneration(this.#nationalIdentityCardNumber);
+        const generationResult = new Generation().witchGeneration(this.#nic);
         
         if(generationResult == "1"){
             year = this.#birthYearOldGen;
@@ -80,16 +90,16 @@ class BirthDay extends exception{
     }
 
      /**
-     * @method days
+     * @method getDays
      * @description The date of birth of the ID card holder and the number of days from the first day of January in the year of his birth.
      * @throws {TypeError} Unexpected result. method or function response is not valid. Please re-check your code and data. - If an inconsistent result is output.
      * @returns {int} The total number of days between the birth year of the ID card holder and the date of birth on January 1.
      */
-    get days(){
+    getDays(){
 
         let days;
 
-        const generationResult = new Generation().witchGeneration(this.#nationalIdentityCardNumber);
+        const generationResult = new Generation().witchGeneration(this.#nic);
         
         if(generationResult == "1"){ days = this.#totalDaysOldGen;}
         else if(generationResult == "2"){days = this.#totalDaysNewGen;}
@@ -100,18 +110,18 @@ class BirthDay extends exception{
     }
 
      /**
-     * @method month
+     * @method getMonth
      * @description Output the month of birth of the ID card holder.
      * @returns {int} Birth month.
      */
-    get month(){
-        const year = this.birthYear.toString();
+    getMonth(){
+        const year = this.getBirthYear().toString();
         let days;
         
         if(parseInt(year) % 4 == 0){
-            days = this.days-1;
+            days = this.getDays()-1;
         }else{
-            days = this.days-2;
+            days = this.getDays()-2;
         }
 
         let date = new Date(year);
@@ -122,33 +132,33 @@ class BirthDay extends exception{
     }
 
     /**
-     * @method monthName
+     * @method getMonthName
      * @description Output the month name of birth of the ID card holder.
      * @returns {string} Birth month name.
      */
-    get monthName(){
+    getMonthName(){
         const monthNames = [
             "January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
           ];
         
-        return monthNames[this.month];
+        return monthNames[this.getMonth()];
     }
 
     /**
-     * @method day
+     * @method getDay
      * @description Output the day of birth of the ID card holder.
      * @returns {int} Birth day.
     */
-    get day(){
-        const year = this.birthYear.toString();
+    getDay(){
+        const year = this.getBirthYear().toString();
         let days;
         
         if(parseInt(year) % 4 == 0){
-            days = this.days-1;
+            days = this.getDays()-1;
             
         }else{
-            days = this.days-2;
+            days = this.getDays()-2;
         }
 
         let date = new Date(year);
@@ -158,20 +168,20 @@ class BirthDay extends exception{
     }
 
     /**
-     * @method dayName
+     * @method getDayName
      * @description Name suitable for the day of birthday. eg:- Sunday, Monday
      * @returns {string} Day name.
     */
-    get dayName(){
+    getDayName(){
         const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        const year = this.birthYear.toString();
+        const year = this.getBirthYear().toString();
         let days;
         
         if(parseInt(year) % 4 == 0){
-            days = this.days-1;
+            days = this.getDays()-1;
 
         }else{
-            days = this.days-2;
+            days = this.getDays()-2;
         }
 
         let date = new Date(year);
@@ -201,7 +211,7 @@ class BirthDay extends exception{
         
         if(!(typeof(nationalIdentityCardNumber) === 'undefined')){
             if(!new Validate().isValidNIC(nationalIdentityCardNumber)){this._exceptionInvalidNic()}//exception
-            else{this.#nationalIdentityCardNumber = nationalIdentityCardNumber;}   
+            else{this.#nicSetter = nationalIdentityCardNumber}   
         }       
     }
 

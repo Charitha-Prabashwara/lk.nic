@@ -14,7 +14,7 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             const nicNumber = dataSeparate[0];
             const birthYear = dataSeparate[3];
 
-            const response = new BirthDay(nicNumber).birthYear;
+            const response = new BirthDay(nicNumber).getBirthYear();
             expect(response).toBe(parseInt(birthYear,10));
             expect(response).not.toBe(false);
         }
@@ -28,7 +28,7 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             const nicNumber = dataSeparate[0];
             const days = dataSeparate[4];
 
-            const response = new BirthDay(nicNumber).days;
+            const response = new BirthDay(nicNumber).getDays();
             expect(response).toBe(parseInt(days,10));
             expect(response).not.toBe(false);
         }
@@ -42,7 +42,7 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             const nicNumber = dataSeparate[0];
             const month = dataSeparate[5];
 
-            const response = new BirthDay(nicNumber).month;
+            const response = new BirthDay(nicNumber).getMonth();
             expect(response).toBe(parseInt(month,10));
             expect(response).not.toBe(false);
         }
@@ -57,7 +57,7 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             const nicNumber = dataSeparate[0];
             const month = dataSeparate[5];
             
-            const response = new BirthDay(nicNumber).monthName;
+            const response = new BirthDay(nicNumber).getMonthName();
             expect(response).toBe(monthNames[parseInt(month,10)]);
             expect(response).not.toBe(false);
         }
@@ -70,7 +70,7 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             const dataSeparate = real_nic[index].split(':');
             const nicNumber = dataSeparate[0];
             const dayofweek = dataSeparate[6];         
-            const response = new BirthDay(nicNumber).day;
+            const response = new BirthDay(nicNumber).getDay();
             expect(response).toBe(parseInt(dayofweek,10));
             expect(response).not.toBe(false);
         }
@@ -84,7 +84,7 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             const nicNumber = dataSeparate[0];
             const dayName = dataSeparate[7];
 
-            const response = new BirthDay(nicNumber).dayName;
+            const response = new BirthDay(nicNumber).getDayName();
             expect(response).toBe(dayName);
             expect(response).not.toBe(false);
             

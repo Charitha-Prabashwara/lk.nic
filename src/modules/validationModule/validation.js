@@ -14,7 +14,7 @@ import exception from './exceptions/exception.js'
  * number of errors present(int)
  * @author Charitha Prabhashwara
  * @email prabhashwara.seu@gmail.com
- * @date 2024/06/03
+ * @date 2024/06/03 
  */
 class Validate extends exception{
 
@@ -197,6 +197,11 @@ class Validate extends exception{
         return this.#isValidDayRange;
     }
 
+    /**
+     * @constructor
+     * @description If you want to block exceptions from creating a Validate instance, you can use exceptionSwitch.
+     * @param {boolean} [exceptionSwitch=true] - Exceptions can be blocked by giving false.
+     */
     constructor(exceptionSwitch=true){
         super();
         this._exceptionSwitch = exceptionSwitch;

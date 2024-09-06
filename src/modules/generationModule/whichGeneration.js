@@ -25,6 +25,11 @@ class Generation extends exception{
      * @date 2024/06/03
      */
     determiningTheGenerationFromChar(nationalIdentityCardNumber){
+        const validation = new Validate();
+        if(!(validation.isValidNIC(nationalIdentityCardNumber))){
+            this._exceptionInvalidNic();
+        }
+        
         const vxChecker = new vxCheck(nationalIdentityCardNumber);
         const isOldGen = vxChecker.isOldGeneration();
         const isNewGen = vxChecker.isNewGeneration();   
@@ -44,6 +49,10 @@ class Generation extends exception{
      * @date 2024/06/03
      */
     determiningTheGenerationFromLength(nationalIdentityCardNumber){
+        const validation = new Validate();
+        if(!(validation.isValidNIC(nationalIdentityCardNumber))){
+            this._exceptionInvalidNic();
+        }
 
         const oldGen = nationalIdentityCardNumber.length == 10;
         const newGen = nationalIdentityCardNumber.length == 12;

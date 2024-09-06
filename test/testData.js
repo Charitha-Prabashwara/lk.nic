@@ -25,6 +25,7 @@ export function fakeNicForDayRangeTest(){
         '200149303551:true:2:2001:193:07:11:Wednesday:male',
         '200192701554:true:2:2001:327:11:22:Thursday:female',
         '200145701412:true:2:2001:157:06:05:Tuesday:male',
+        '200141202928:true:2:2001:112:04:21:Saturday:male',
         '200141202928:true:2:2001:112:04:21:Saturday:male'
         ];
     return fake_nic;

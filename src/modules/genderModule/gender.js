@@ -18,7 +18,7 @@ class Gender extends exception{
     #dayRangeValidate = new DayRange();
 
     /**
-     * @method genderToSt
+     * @method genderToStr
      * @description Gender is treated as an string. female or male.
      * Returns false if validation tests fail.
      * @param {string} nationalIdentityCardNumber 
@@ -34,8 +34,8 @@ class Gender extends exception{
      */
     genderToStr(nationalIdentityCardNumber){
         let generation;
-        if(nationalIdentityCardNumber === undefined){generation = this.nicGeneration();}
-        else{generation = this.nicGeneration(nationalIdentityCardNumber);}
+        if(nationalIdentityCardNumber === undefined){generation = this.#nicGeneration();}
+        else{generation = this.#nicGeneration(nationalIdentityCardNumber);}
         
         let totalDays;
         if(generation == '1'){
@@ -48,7 +48,7 @@ class Gender extends exception{
             if(nationalIdentityCardNumber === undefined){ totalDays = this.#totalDaysNewGen();}
             else{ totalDays = this.#totalDaysNewGen(nationalIdentityCardNumber);}
         }else{
-            return false;
+            this._exceptionUnexpectedResult()//exception
         }
 
         if(totalDays > 500){
@@ -57,9 +57,11 @@ class Gender extends exception{
             return 'male';
         }else if(!this.#dayRangeValidate.isValidDayRangeFromEpoch(totalDays)){
             return false;
+            //This is important please, you must re check this.
+            //Noted- 2024/9/6 10:46AM
         }
         else{
-            return false;
+            this._exceptionUnexpectedResult()//exception
         }
     }
     /**
@@ -140,7 +142,7 @@ class Gender extends exception{
         return false;     
     }
     /**
-     * @method nicGeneration
+     * @method #nicGeneration
      * @description Outputs the generation of the ID number(string). Returns "false" if not valid.
      * @param {string} nationalIdentityCardNumber 
      * @returns {false | "1" | "2"}
@@ -148,20 +150,20 @@ class Gender extends exception{
      * //example one
      * let gender = Gender();
      * if(gender.nicNumber("your national-identity-card number")){
-     *      console.log(gender.nicGeneration());   
+     *      console.log(gender.#nicGeneration());   
      * }else{
      *      console.log("Invalid NIC");
      * }
      * //example two
      * let gender = Gender("your national-identity-card number");
      * if(gender)){
-     *      console.log(gender.nicGeneration())   
+     *      console.log(gender.#nicGeneration())   
      * }else{
      *      console.log("Invalid NIC");
      * }
      * @date 2024/06/05
     */
-    nicGeneration(nationalIdentityCardNumber){
+    #nicGeneration(nationalIdentityCardNumber){
 
         let GENERATION = new Generation();
         if(nationalIdentityCardNumber === undefined){GENERATION = GENERATION.whichGeneration(this.#nicNumber);}

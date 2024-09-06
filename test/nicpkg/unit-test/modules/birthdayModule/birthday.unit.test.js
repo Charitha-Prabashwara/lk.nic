@@ -1,8 +1,10 @@
 import {BirthDay} from 'lknic';
-import { realNic, monthNames as mn } from '../../../../testData';
+import { realNic, monthNames as mn, fakeNicForDayRangeTest} from '../../../../testData';
+import exception from '../../../../../src/modules/validationModule/exceptions/exception';
 
 const real_nic = realNic();
 const monthNames = mn();
+const fake_nic = fakeNicForDayRangeTest();
 
 describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
 
@@ -20,7 +22,7 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
         }
     });
 
-    test("validate code on 'birthday'. Method: days()", () => {
+    test("validate code on 'birthday'. Method: getDays()", () => {
        
         for (let index = 0; index < real_nic.length; index++) {
             
@@ -34,7 +36,7 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
         }
     });
 
-    test("validate code on 'birthday'. Method: month()", () => {
+    test("validate code on 'birthday'. Method: getMonth()", () => {
        
         for (let index = 0; index < real_nic.length; index++) {
             
@@ -49,7 +51,7 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
     });
 
 
-    test("validate code on 'birthday'. Method: monthName()", () => {
+    test("validate code on 'birthday'. Method: getMonthName()", () => {
        
         for (let index = 0; index < real_nic.length; index++) {
             
@@ -63,7 +65,7 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
         }
     });
 
-    test("validate code on 'birthday'. Method: day()", () => {
+    test("validate code on 'birthday'. Method: getDay()", () => {
        
         for (let index = 0; index < real_nic.length; index++) {
             
@@ -76,7 +78,7 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
         }
     });
 
-    test("validate code on 'birthday'. Method: dayName()", () => {
+    test("validate code on 'birthday'. Method: getDayName()", () => {
        
         for (let index = 0; index < real_nic.length; index++) {
             
@@ -90,6 +92,59 @@ describe('Test identity, calculate birthday: id-001 , Module: birthday', () => {
             
         }
     });
+
+    test("validate code on 'birthday'. setter: identityNumber()", () => {
+       
+        for (let index = 0; index < real_nic.length; index++) {
+            
+            const dataSeparate = real_nic[index].split(':');
+            const nicNumber = dataSeparate[0];
+            const dayName = dataSeparate[7];  
+                expect(() => new BirthDay().identityNumber = nicNumber).not.toThrow();       
+        }
+
+        for (let index = 0; index < fake_nic.length; index++) {
+            
+            const dataSeparate = fake_nic[index].split(':');
+            const nicNumber = dataSeparate[0];
+            const dayName = dataSeparate[7];
+                expect(() => new BirthDay().identityNumber = nicNumber).toThrow();      
+        }
+    });
+
+
+    test("validate code on 'birthday'. constructor: constructor()", () => {
+       
+        for (let index = 0; index < real_nic.length; index++) {
+            
+            const dataSeparate = real_nic[index].split(':');
+            const nicNumber = dataSeparate[0];
+            const dayName = dataSeparate[7];  
+                expect(() => new BirthDay(nicNumber)).not.toThrow();
+                expect(() => new BirthDay()).not.toThrow();
+                expect(() => new BirthDay(undefined,false)).not.toThrow();
+                expect(() => new BirthDay(undefined, true)).not.toThrow();
+                expect(() => new BirthDay(nicNumber, false)).not.toThrow();
+                expect(() => new BirthDay(nicNumber, true)).not.toThrow();
+        }
+
+        for (let index = 0; index < fake_nic.length; index++) {
+            
+            const dataSeparate = fake_nic[index].split(':');
+            const nicNumber = dataSeparate[0];
+            const dayName = dataSeparate[7];
+                expect(() => new BirthDay().identityNumber = nicNumber).toThrow();
+                expect(() => new BirthDay(nicNumber)).toThrow(); 
+                expect(() => new BirthDay(1234)).toThrow();
+                expect(() => new BirthDay(1.0145)).toThrow(); 
+                expect(() => new BirthDay(true)).toThrow();
+                expect(() => new BirthDay(false)).toThrow();
+                //expect(() => new BirthDay(undefined, "123")).toThrow();   
+                //expect(() => new BirthDay(undefined, "123")).toThrow();   
+                //expect(() => new BirthDay(undefined, 12.45)).toThrow();        
+        }
+    });
+
 
 
 });

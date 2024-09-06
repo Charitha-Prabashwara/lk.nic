@@ -68,7 +68,7 @@ class Generation extends exception{
      */
     whichGeneration(nationalIdentityCardNumber){
         const validation = new Validate();
-        if(!(new validation.isValidNIC(nationalIdentityCardNumber))){
+        if(!(validation.isValidNIC(nationalIdentityCardNumber))){
             this._exceptionInvalidNic();
         }
 

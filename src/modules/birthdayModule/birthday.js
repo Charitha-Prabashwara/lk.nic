@@ -203,9 +203,12 @@ class BirthDay extends exception{
     constructor(nationalIdentityCardNumber, exceptionSwitch = true){ 
         super();
 
+
         if(!(typeof(exceptionSwitch) === 'boolean')){
             this._exceptionSwitchTypeError();//exception
+
         }else{
+           
             this._exceptionSwitch = exceptionSwitch;
         }
         

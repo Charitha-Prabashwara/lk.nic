@@ -29,5 +29,3 @@ jobs:
         run: npm ci
       - name: tests
         run: npm test
-      - name: docs-generate
-        run: npm run doc

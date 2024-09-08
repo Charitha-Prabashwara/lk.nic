@@ -129,12 +129,20 @@ class Validate extends exception{
 
     /**
      * @method invalidsCount
-     * @description Performs all validation checks and outputs how many validation checks have failed.
-     * @param {string} nicNumber 
-     * @returns {int}
+     * @description This method performs all validation checks on the provided National ID number and returns the number of failed validations. 
+     * It validates the ID based on several criteria, including length, valid characters, the presence of "V/X" in first-generation IDs, 
+     * and the encoded date of birth. For each failed validation, the count is incremented, providing a total number of issues found in the ID number.
+     * If all validations pass, the method returns `0`, indicating that the ID is valid.
+     * The National ID number must be supplied as a string, and any other data type will result in an exception.
+     * 
+     * @param {string} nicNumber - The National ID number to be validated.
+     * @returns {int} - The total number of failed validation checks. Returns `0` if the ID passes all checks.
+     * @throws {TypeError} NIC number cannot be undefined and must be of type string.
+     * @throws {TypeError} National ID number must be of type 'string' and cannot be undefined.
      * @example
-     * let count= Validate().invalidsCount("your national-identity-card number");
-     * console.log(count)
+     * let count = new Validate().invalidsCount("your national-identity-card number");
+     * console.log(count); // Outputs the number of failed validation checks
+     * 
      * @date 2024/06/03
      */
     invalidsCount(nicNumber){

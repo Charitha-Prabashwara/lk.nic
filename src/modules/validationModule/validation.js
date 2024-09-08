@@ -102,18 +102,24 @@ class Validate extends exception{
 
     /**
      * @method isInvalidNIC
-     * @description Returns true if all validation false are done,
-     * returns true if one or more of the validation tests are incorrect.
-     * The National ID number should be given in string datatype.
-     * @param {string} nicNumber 
-     * @returns {boolean}
+     * @description This method checks whether the provided National ID number is invalid by performing a series of validation tests.
+     * It returns `true` if one or more of the validation checks fail, indicating that the ID is invalid. 
+     * If all validation tests pass, the method returns `false`, meaning the ID is valid. The validation includes checks for
+     * length, valid characters, presence of "V/X" in first-generation IDs, and the encoded date of birth.
+     * The National ID number must be provided as a string, and any other data type will trigger an exception.
+     *
+     * @param {string} nicNumber - The National ID number to be validated.
+     * @returns {boolean} - Returns `true` if the ID is invalid, and `false` if it is valid.
+     * @throws {TypeError} NIC number cannot be undefined and must be of type string.
+     * @throws {TypeError} National ID number must be of type 'string' and cannot be undefined.
      * @example
-     * let nic= Validate().isInvalidNIC("your national-identity-card number");
-     * if(nic){
-     *      console.log("Invalid");
-     * }else{
-     *      console.log("valid");
+     * let nic = new Validate().isInvalidNIC("your national-identity-card number");
+     * if (nic) {
+     *     console.log("Invalid");
+     * } else {
+     *     console.log("Valid");
      * }
+     * 
      * @date 2024/06/03
      */
     isInvalidNIC(nicNumber){

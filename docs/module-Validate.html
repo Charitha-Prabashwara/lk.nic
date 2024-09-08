@@ -257,7 +257,7 @@ n for National ID validation.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_validationModule_validation.js.html">modules/validationModule/validation.js</a>, <a href="modules_validationModule_validation.js.html#line124">line 124</a>
+        <a href="modules_validationModule_validation.js.html">modules/validationModule/validation.js</a>, <a href="modules_validationModule_validation.js.html#line130">line 130</a>
     </li></ul></dd>
     
 
@@ -410,9 +410,11 @@ n for National ID validation.</p></li></ul></dd>
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li><p>Returns true if all validation false are done,
-returns true if one or more of the validation tests are incorrect.
-The National ID number should be given in string datatype.</p></li></ul></dd>
+    <dd class="tag-description"><ul class="dummy"><li><p>This method checks whether the provided National ID number is invalid by performing a series of validation tests.
+It returns <code>true</code> if one or more of the validation checks fail, indicating that the ID is invalid.
+If all validation tests pass, the method returns <code>false</code>, meaning the ID is valid. The validation includes checks for
+length, valid characters, presence of &quot;V/X&quot; in first-generation IDs, and the encoded date of birth.
+The National ID number must be provided as a string, and any other data type will trigger an exception.</p></li></ul></dd>
     
 
     
@@ -465,7 +467,7 @@ The National ID number should be given in string datatype.</p></li></ul></dd>
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>let nic= Validate().isInvalidNIC("your national-identity-card number");if(nic){     console.log("Invalid");}else{     console.log("valid");}</code></pre>
+    <pre class="prettyprint"><code>let nic = new Validate().isInvalidNIC("your national-identity-card number");if (nic) {    console.log("Invalid");} else {    console.log("Valid");}</code></pre>
 
 
 
@@ -512,7 +514,7 @@ The National ID number should be given in string datatype.</p></li></ul></dd>
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>The National ID number to be validated.</p></td>
         </tr>
 
     
@@ -532,11 +534,75 @@ The National ID number should be given in string datatype.</p></li></ul></dd>
 
 
 
+<h5 class="h5-throws">Throws:</h5>
+<ul>
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>NIC number cannot be undefined and must be of type string.</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">TypeError</span>
+
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>National ID number must be of type 'string' and cannot be undefined.</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">TypeError</span>
+
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    </ul>
 
 
 <h5 class="h5-returns">Returns:</h5>
 
         
+<div class="param-desc">
+    <ul>
+<li>Returns <code>true</code> if the ID is invalid, and <code>false</code> if it is valid.</li>
+</ul>
+</div>
+
 
 
 <dl class="param-type">
@@ -578,7 +644,7 @@ Returns true if the characters in the ID number are valid, returns false if they
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_validationModule_validation.js.html">modules/validationModule/validation.js</a>, <a href="modules_validationModule_validation.js.html#line170">line 170</a>
+        <a href="modules_validationModule_validation.js.html">modules/validationModule/validation.js</a>, <a href="modules_validationModule_validation.js.html#line176">line 176</a>
     </li></ul></dd>
     
 
@@ -738,7 +804,7 @@ Returns true if the length is valid, false if the length is invalid.</p></li></u
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_validationModule_validation.js.html">modules/validationModule/validation.js</a>, <a href="modules_validationModule_validation.js.html#line148">line 148</a>
+        <a href="modules_validationModule_validation.js.html">modules/validationModule/validation.js</a>, <a href="modules_validationModule_validation.js.html#line154">line 154</a>
     </li></ul></dd>
     
 
@@ -1126,7 +1192,7 @@ it will return true.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_validationModule_validation.js.html">modules/validationModule/validation.js</a>, <a href="modules_validationModule_validation.js.html#line191">line 191</a>
+        <a href="modules_validationModule_validation.js.html">modules/validationModule/validation.js</a>, <a href="modules_validationModule_validation.js.html#line197">line 197</a>
     </li></ul></dd>
     
 
@@ -1286,7 +1352,7 @@ returns true if the date of birth is correct.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_validationModule_validation.js.html">modules/validationModule/validation.js</a>, <a href="modules_validationModule_validation.js.html#line215">line 215</a>
+        <a href="modules_validationModule_validation.js.html">modules/validationModule/validation.js</a>, <a href="modules_validationModule_validation.js.html#line221">line 221</a>
     </li></ul></dd>
     
 
@@ -1444,7 +1510,7 @@ returns true if the date of birth is correct.</p></li></ul></dd>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Sun Sep 08 2024 08:27:21 GMT+0530 (India Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Sun Sep 08 2024 08:41:08 GMT+0530 (India Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

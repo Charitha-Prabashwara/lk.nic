@@ -4,32 +4,47 @@ import Validate from '../validationModule/validation.js';
 import exception from './exceptions/exception.js';
 
 /**
- * 
  * @module BirthDay
- * @description This is used to find the date, month, and birth year in a National ID number.
- * @author Charitha Prabhashwara
- * @email prabhashwara.seu@gmail.com
+ * @description 
+ * The `BirthDay` class is designed to extract and compute the birth details (year, month, day) 
+ * from a Sri Lankan National ID number. The class performs the extraction of birth data by using 
+ * the encoded date information within the National ID, which includes the birth year and a numeric 
+ * representation of the day of the year (DOY). The class supports both first- and second-generation 
+ * National ID formats.
  * 
- * @param {string} identityNumber - This can be used to add a new national ID number to the birthday object.
- * It will be executed only if the validity test is passed and if an invalid ID number is entered,
- * the corresponding exception will be executed. In case of a new entry, 
- * use 'exception handling techniques' or use the 'validation' module to enter with prior validation.
+ * Validation of the ID number is handled by the `Validate` module, ensuring that only valid ID numbers 
+ * are processed. Exception handling is also integrated, allowing developers to control how invalid inputs 
+ * are treated.
+ * 
+ * The class offers methods to get specific birth information like year, month, day, and their respective names.
+ * 
+ * @param {string} identityNumber - The National ID number to be associated with the birthday object. The ID number 
+ * must pass validation checks before being processed.
+ * @throws {Error} Throws an exception if the ID number is invalid or improperly formatted.
+ * @throws {TypeError} Throws an exception if invalid data types are provided for any method or parameter.
+ * 
  * @date 2024/06/05
+ * @extends exception
+ * @example
+ * // Example of using the BirthDay class
+ * let birthday = new BirthDay("199012345678");
+ * console.log(birthday.getBirthYear()); // Outputs the birth year
+ * console.log(birthday.getDayName()); // Outputs the name of the day of birth, e.g., "Sunday"
  */
 class BirthDay extends exception{
     
-    #nic;
-    #generation;
-   
-    
+    #nic;  // Private field to store National ID
+
     /**
-     * identityNumber
-     * @description This can be used to add a new national ID number to the birthday object.
-     * It will be executed only if the validity test is passed and if an invalid ID number is entered,
-     * the corresponding exception will be executed. In case of a new entry,
-     * use 'exception handling techniques' or use the 'validation' module to enter with prior validation.
-     * @param {string} nationalIdentityCardNumber - National identity card number Sri Lanka
-     * @throws {Error} The ID number is not valid. The birthday module cannot be used without passing the validation test.
+     * @property {string} identityNumber
+     * @description 
+     * Setter for the National ID number. This method adds a new National ID number to the 
+     * birthday object, but only if the validity test is passed. If the ID number is invalid, 
+     * it throws an appropriate exception. The ID number must be validated beforehand using 
+     * the `Validate` module or exception handling must be applied.
+     * 
+     * @param {string} nationalIdentityCardNumber - The Sri Lankan National ID number.
+     * @throws {Error} Throws an exception if the ID number is not valid.
      */
     set identityNumber(nationalIdentityCardNumber){
         //write unit-test -not yet 
@@ -68,10 +83,15 @@ class BirthDay extends exception{
 
     /**
      * @method getBirthYear
-     * @description This can be used to get the ID card holder's year of birth.
-     * @throws {TypeError} Unexpected result. method or function response is not valid. Please re-check your code and data. - If an inconsistent result is output.
-     * @returns {int} Birth year of ID card holder.
-     * @readonly
+     * @description Retrieves the birth year encoded within the National ID number. The method identifies whether 
+     * the ID is from the first- or second-generation format and extracts the appropriate birth year 
+     * accordingly.
+     * 
+     * @throws {TypeError} Throws an exception if the result is inconsistent or unexpected.
+     * @returns {int} The birth year of the ID cardholder.
+     * @example
+     * let birthday = new BirthDay("199012345678");
+     * console.log(birthday.getBirthYear()); // Outputs the birth year: 1990
      */
     getBirthYear(){
         
@@ -89,11 +109,17 @@ class BirthDay extends exception{
         return year;
     }
 
-     /**
+    /**
      * @method getDays
-     * @description The date of birth of the ID card holder and the number of days from the first day of January in the year of his birth.
-     * @throws {TypeError} Unexpected result. method or function response is not valid. Please re-check your code and data. - If an inconsistent result is output.
-     * @returns {int} The total number of days between the birth year of the ID card holder and the date of birth on January 1.
+     * @description 
+     * Retrieves the number of days since January 1st of the birth year, as encoded in the National ID number. 
+     * For female cardholders, this value is adjusted by subtracting 500 from the total.
+     * 
+     * @throws {TypeError} Throws an exception if the result is inconsistent or unexpected.
+     * @returns {int} The total number of days from January 1st to the birth date.
+     * @example
+     * let birthday = new BirthDay("199012345678");
+     * console.log(birthday.getDays()); // Outputs the number of days since January 1st.
      */
     getDays(){
 
@@ -109,10 +135,16 @@ class BirthDay extends exception{
         return days;
     }
 
-     /**
+    /**
      * @method getMonth
-     * @description Output the month of birth of the ID card holder.
-     * @returns {int} Birth month.
+     * @description 
+     * Calculates and returns the birth month of the ID cardholder based on the number of days 
+     * since January 1st and the encoded birth year.
+     * 
+     * @returns {int} The birth month as an integer (1-12).
+     * @example
+     * let birthday = new BirthDay("199012345678");
+     * console.log(birthday.getMonth()); // Outputs the birth month: 6 (for June)
      */
     getMonth(){
         const year = this.getBirthYear().toString();
@@ -133,8 +165,13 @@ class BirthDay extends exception{
 
     /**
      * @method getMonthName
-     * @description Output the month name of birth of the ID card holder.
-     * @returns {string} Birth month name.
+     * @description 
+     * Retrieves the name of the birth month of the ID cardholder (e.g., "January", "February").
+     * 
+     * @returns {string} The name of the birth month.
+     * @example
+     * let birthday = new BirthDay("199012345678");
+     * console.log(birthday.getMonthName()); // Outputs the birth month name: "June"
      */
     getMonthName(){
         const monthNames = [
@@ -147,9 +184,15 @@ class BirthDay extends exception{
 
     /**
      * @method getDay
-     * @description Output the day of birth of the ID card holder.
-     * @returns {int} Birth day.
-    */
+     * @description 
+     * Calculates and returns the birth day of the ID cardholder, based on the encoded number 
+     * of days since January 1st.
+     * 
+     * @returns {int} The day of birth as an integer.
+     * @example
+     * let birthday = new BirthDay("199012345678");
+     * console.log(birthday.getDay()); // Outputs the day of birth: 15
+     */
     getDay(){
         const year = this.getBirthYear().toString();
         let days;
@@ -167,10 +210,15 @@ class BirthDay extends exception{
         return result;
     }
 
-    /**
+   /**
      * @method getDayName
-     * @description Name suitable for the day of birthday. eg:- Sunday, Monday
-     * @returns {string} Day name.
+     * @description 
+     * Retrieves the name of the day of birth (e.g., "Monday", "Tuesday") for the ID cardholder.
+     * 
+     * @returns {string} The name of the birth day.
+     * @example
+     * let birthday = new BirthDay("199012345678");
+     * console.log(birthday.getDayName()); // Outputs the day name: "Saturday"
     */
     getDayName(){
         const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -193,12 +241,17 @@ class BirthDay extends exception{
     
     /**
      * @constructor
-     * @description This is used to find birthdays. When creating an object using BirthDay(), the national identity card number must be entered. If this is not provided, an object can be created, and the national identity card number can be entered using "setIdentityNumber(nationalIdentityCardNumber)". Any national ID number applied must be pre-verified.
-     * Exceptions can be avoided if necessary. 
-     * @param {string} [nationalIdentityCardNumber] - National identity card number Sri Lanka (Optional)
-     * @param {boolean} [exceptionSwitch=true] - Designer-defined exceptions can be disabled.
-     * @throws {TypeError} The parameter datatype does not match. A datatype of boolean is expected.
-     * @throws {Error} The ID number is not valid. The birthday module cannot be used without passing the validation test.
+     * @description 
+     * Constructs a new `BirthDay` object to extract birth information from a Sri Lankan National ID number. 
+     * If the National ID number is not provided during instantiation, it can be added later using the 
+     * `identityNumber` setter. Exception handling can be enabled or disabled by passing a boolean value.
+     * 
+     * @param {string} [nationalIdentityCardNumber] - The Sri Lankan National ID number (optional).
+     * @param {boolean} [exceptionSwitch=true] - Set to `false` to disable exceptions. Defaults to `true`.
+     * @throws {TypeError} Throws an exception if the `exceptionSwitch` is not a boolean.
+     * @throws {Error} Throws an exception if the ID number is not valid.
+     * @example
+     * // Create a BirthDay instance with a National ID
      */
     constructor(nationalIdentityCardNumber, exceptionSwitch = true){ 
         super();

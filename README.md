@@ -41,4 +41,4 @@ Contributions to **lknic** are welcome! If you find any issues or have suggestio
 
 ## Contact
 
-For any questions or support, please reach out to [your-email@example.com](mailto:your-email@example.com).
+For any questions or support, please reach out to [prabhashwara.seu@gmail.com](mailto:prabhashwara.seu@gmai.com).

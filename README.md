@@ -85,6 +85,38 @@ console.log(birthday.getMonthName()); // Outputs: birth month name
 console.log(birthday.getDayName()); // Outputs: birth day name
 ```
 
+##### Generation Class
+
+This Generation class is responsible for identifying the generation of a Sri Lankan National Identity Card (NIC) based on its characteristics such as the length and the presence of specific characters like "V" or "X".
+
+```js
+// Importing the Generation class
+import Generation from "./Generation.js";
+
+// Example NIC numbers
+const nicOldGen = "934562718V"; // First generation NIC
+const nicNewGen = "200456271234"; // Second generation NIC
+
+// Create an instance of the Generation class
+const generationChecker = new Generation();
+
+// Example 1: Determine generation of an old generation NIC
+try {
+  const generation1 = generationChecker.whichGeneration(nicOldGen);
+  console.log(`NIC: ${nicOldGen} belongs to Generation: ${generation1}`); // Output: Generation 1
+} catch (error) {
+  console.error(`Error: ${error.message}`);
+}
+
+// Example 2: Determine generation of a new generation NIC
+try {
+  const generation2 = generationChecker.whichGeneration(nicNewGen);
+  console.log(`NIC: ${nicNewGen} belongs to Generation: ${generation2}`); // Output: Generation 2
+} catch (error) {
+  console.error(`Error: ${error.message}`);
+}
+```
+
 ##### Validate Class
 
 To validate a Sri Lankan National Identity Card (NIC) number, use the isValidNIC method. It checks the ID number for length, valid characters, "V/X" presence, and date of birth encoding.

@@ -35,6 +35,73 @@ For detailed API documentation, refer to the following sections:
 
 Contributions to **lknic** are welcome! If you find any issues or have suggestions for improvements, please submit a pull request or open an issue on [GitHub](https://github.com/Charitha-Prabashwara/lk.nic/issues).
 
+## Usage
+
+Here is a brief overview of how to use the lknic library:
+
+##### Gender Class
+
+The Gender class allows you to determine the gender of an individual based on their NIC number.
+
+```js
+import Gender from "lknic";
+
+// Create an instance of Gender
+const gender = new Gender("823456789V");
+
+// Get gender as a string
+console.log(gender.genderToStr()); // Outputs: 'male' or 'female'
+
+// Get gender as an integer
+console.log(gender.genderToInt()); // Outputs: 1 for male, 2 for female
+
+// Check if the NIC belongs to a male or female
+console.log(gender.isMale()); // Outputs: true or false
+console.log(gender.isFemale()); // Outputs: true or false
+```
+
+##### BirthDay Class
+
+The BirthDay class extracts and computes the birth details from a NIC number.
+
+```js
+import BirthDay from "lknic";
+
+// Create an instance of BirthDay
+const birthday = new BirthDay("199012345678");
+
+// Get birth year
+console.log(birthday.getBirthYear()); // Outputs: birth year
+
+// Get the day of the year
+console.log(birthday.getDays()); // Outputs: number of days since January 1
+
+// Get the birth month and day
+console.log(birthday.getMonth()); // Outputs: birth month (1-12)
+console.log(birthday.getDay()); // Outputs: birth day (1-31)
+
+// Get the name of the birth month and day
+console.log(birthday.getMonthName()); // Outputs: birth month name
+console.log(birthday.getDayName()); // Outputs: birth day name
+```
+
+##### Validate Class
+
+To validate a Sri Lankan National Identity Card (NIC) number, use the isValidNIC method. It checks the ID number for length, valid characters, "V/X" presence, and date of birth encoding.
+
+```js
+import Validate from "lknic";
+
+let validate = new Validate();
+let nic = "your-national-identity-card-number";
+
+if (validate.isValidNIC(nic)) {
+  console.log("NIC is valid");
+} else {
+  console.log("NIC is invalid");
+}
+```
+
 ## License
 
 **lknic** is licensed under the [MIT License](LICENSE). See the LICENSE file for details.
